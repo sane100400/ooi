@@ -9,27 +9,27 @@ const categories = ["전체", "기업 사이트", "쇼핑몰", "랜딩페이지"
 /* Thumbnail images matching each portfolio mock site */
 const thumbnails: Record<string, { img: string; brand: string }> = {
   "1": {
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=250&fit=crop",
     brand: "NeuralX",
   },
   "2": {
-    img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&h=250&fit=crop",
     brand: "MAISON ÉLITE",
   },
   "3": {
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=250&fit=crop",
     brand: "FlowDesk",
   },
   "4": {
-    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=250&fit=crop",
     brand: "VitaTrack",
   },
   "5": {
-    img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=500&h=250&fit=crop",
     brand: "ARCHI STUDIO",
   },
   "6": {
-    img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=400&fit=crop",
+    img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&h=250&fit=crop",
     brand: "그린마켓",
   },
 };

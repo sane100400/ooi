@@ -128,7 +128,7 @@ function Site1() {
             </div>
           </div>
           <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="" className="w-full rounded-xl" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop" alt="" className="w-full rounded-xl" loading="lazy" />
           </div>
         </div>
       </section>
@@ -149,10 +149,10 @@ function Site1() {
    ════════════════════════════════════════════ */
 function Site2() {
   const products = [
-    { img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop", name: "캐시미어 오버코트", price: "₩890,000", tag: "NEW" },
-    { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=800&fit=crop", name: "실크 블라우스", price: "₩320,000", tag: null },
-    { img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=800&fit=crop", name: "테일러드 재킷", price: "₩580,000", tag: "BEST" },
-    { img: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=800&fit=crop", name: "플리츠 스커트", price: "₩270,000", tag: null },
+    { img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop", name: "캐시미어 오버코트", price: "₩890,000", tag: "NEW" },
+    { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=500&fit=crop", name: "실크 블라우스", price: "₩320,000", tag: null },
+    { img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=500&fit=crop", name: "테일러드 재킷", price: "₩580,000", tag: "BEST" },
+    { img: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=500&fit=crop", name: "플리츠 스커트", price: "₩270,000", tag: null },
   ];
   return (
     <div className="min-h-screen bg-[#faf8f5]">
@@ -185,7 +185,7 @@ function Site2() {
           </div>
         </div>
         <div className="relative min-h-[500px]">
-          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=900&h=900&fit=crop" alt="" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=400&fit=crop" alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
       </section>
 
@@ -227,7 +227,7 @@ function Site2() {
 
       {/* Full-width lookbook image */}
       <section className="relative h-[60vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600&h=800&fit=crop" alt="" className="h-full w-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop" alt="" className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 flex items-center justify-center bg-black/30">
           <div className="text-center">
             <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/70">Lookbook</span>
@@ -321,7 +321,7 @@ function Site3() {
               <div className="flex gap-1.5"><div className="h-3 w-3 rounded-full bg-red-400" /><div className="h-3 w-3 rounded-full bg-yellow-400" /><div className="h-3 w-3 rounded-full bg-green-400" /></div>
               <div className="ml-4 flex-1 rounded-md bg-white px-3 py-1 text-xs text-slate-400">app.flowdesk.io/workspace</div>
             </div>
-            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1200&h=600&fit=crop" alt="" className="w-full" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=400&fit=crop" alt="" className="w-full" loading="lazy" />
           </div>
         </div>
       </section>
@@ -460,7 +460,7 @@ function Site4() {
           <div className="flex justify-center">
             <div className="w-[280px] rounded-[2.5rem] border-[10px] border-slate-800 bg-white shadow-2xl">
               <div className="mx-auto mt-3 mb-2 h-5 w-20 rounded-full bg-slate-800" />
-              <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=900&fit=crop" alt="" className="w-full rounded-b-[1.8rem]" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=600&fit=crop" alt="" className="w-full rounded-b-[1.8rem]" loading="lazy" />
             </div>
           </div>
         </div>
@@ -493,7 +493,7 @@ function Site4() {
       {/* AI Report section */}
       <section className="py-20 px-6">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop" alt="" className="rounded-3xl shadow-xl" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=375&fit=crop" alt="" className="rounded-3xl shadow-xl" loading="lazy" />
           <div>
             <span className="mb-3 inline-block text-xs font-bold uppercase tracking-wider text-blue-600">AI Health Report</span>
             <h2 className="mb-6 text-3xl font-extrabold text-slate-900">AI가 분석하는 맞춤 건강 리포트</h2>
@@ -556,12 +556,12 @@ function Site4() {
    ════════════════════════════════════════════ */
 function Site5() {
   const projects = [
-    { img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop", name: "청담 레지던스", area: "320㎡", year: "2024" },
-    { img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop", name: "한남 갤러리 카페", area: "180㎡", year: "2024" },
-    { img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop", name: "판교 단독주택", area: "450㎡", year: "2023" },
-    { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop", name: "제주 풀빌라", area: "280㎡", year: "2023" },
-    { img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", name: "성수 복합문화공간", area: "520㎡", year: "2023" },
-    { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop", name: "양평 세컨드하우스", area: "200㎡", year: "2022" },
+    { img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&h=375&fit=crop", name: "청담 레지던스", area: "320㎡", year: "2024" },
+    { img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&h=375&fit=crop", name: "한남 갤러리 카페", area: "180㎡", year: "2024" },
+    { img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=500&h=375&fit=crop", name: "판교 단독주택", area: "450㎡", year: "2023" },
+    { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&h=375&fit=crop", name: "제주 풀빌라", area: "280㎡", year: "2023" },
+    { img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=375&fit=crop", name: "성수 복합문화공간", area: "520㎡", year: "2023" },
+    { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=375&fit=crop", name: "양평 세컨드하우스", area: "200㎡", year: "2022" },
   ];
   return (
     <div className="min-h-screen bg-white">
@@ -579,7 +579,7 @@ function Site5() {
       {/* Hero — full bleed image, then text */}
       <section>
         <div className="relative h-[75vh] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&h=900&fit=crop" alt="" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=450&fit=crop" alt="" className="h-full w-full object-cover" loading="lazy" />
         </div>
         <div className="mx-auto max-w-5xl px-8 py-16">
           <div className="grid gap-8 lg:grid-cols-2">
@@ -678,10 +678,10 @@ function Site5() {
    ════════════════════════════════════════════ */
 function Site6() {
   const products = [
-    { img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=600&fit=crop", name: "유기농 방울토마토", price: "4,900", badge: "인기" },
-    { img: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=600&h=600&fit=crop", name: "무농약 바나나", price: "5,500", badge: null },
-    { img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=600&h=600&fit=crop", name: "제주 당근", price: "3,200", badge: "제철" },
-    { img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600&h=600&fit=crop", name: "유기농 블루베리", price: "7,200", badge: null },
+    { img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=400&fit=crop", name: "유기농 방울토마토", price: "4,900", badge: "인기" },
+    { img: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=400&fit=crop", name: "무농약 바나나", price: "5,500", badge: null },
+    { img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=400&fit=crop", name: "제주 당근", price: "3,200", badge: "제철" },
+    { img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=400&fit=crop", name: "유기농 블루베리", price: "7,200", badge: null },
   ];
   return (
     <div className="min-h-screen bg-[#fefcf3]">
@@ -699,7 +699,7 @@ function Site6() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1400&h=700&fit=crop" alt="" className="h-[520px] w-full object-cover sm:h-[600px]" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=400&fit=crop" alt="" className="h-[520px] w-full object-cover sm:h-[600px]" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#fefcf3] via-[#fefcf3]/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-14 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2">
@@ -769,7 +769,7 @@ function Site6() {
       {/* Subscription promo */}
       <section className="py-20 px-6">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
-          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=800&h=600&fit=crop" alt="" className="rounded-3xl shadow-lg" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500&h=375&fit=crop" alt="" className="rounded-3xl shadow-lg" loading="lazy" />
           <div>
             <span className="mb-3 inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">🥬 정기 구독</span>
             <h2 className="mb-4 text-3xl font-extrabold text-stone-900">
