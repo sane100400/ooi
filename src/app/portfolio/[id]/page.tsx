@@ -149,7 +149,7 @@ function Site1() {
    ════════════════════════════════════════════ */
 function Site2() {
   const products = [
-    { img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop", name: "캐시미어 오버코트", price: "₩890,000", tag: "NEW" },
+    { img: "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=400&h=500&fit=crop", name: "캐시미어 오버코트", price: "₩890,000", tag: "NEW" },
     { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=500&fit=crop", name: "실크 블라우스", price: "₩320,000", tag: null },
     { img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=500&fit=crop", name: "테일러드 재킷", price: "₩580,000", tag: "BEST" },
     { img: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=500&fit=crop", name: "플리츠 스커트", price: "₩270,000", tag: null },
