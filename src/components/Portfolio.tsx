@@ -83,7 +83,7 @@ export default function Portfolio() {
             프로젝트 <span className="gradient-text">포트폴리오</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-500 dark:text-emerald-200/60">
-            다양한 산업군의 클라이언트와 함께한 대표 프로젝트를 소개합니다
+            직접 만든 디자인 레퍼런스를 모아놓았습니다
           </p>
         </div>
 
