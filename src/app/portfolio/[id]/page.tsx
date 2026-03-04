@@ -700,16 +700,16 @@ function Site6() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=400&fit=crop" alt="" className="h-[520px] w-full object-cover sm:h-[600px]" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fefcf3] via-[#fefcf3]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-14 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2">
-            <span className="text-sm font-bold text-green-700">🌱 100% 유기농 인증 식품</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2">
+            <span className="text-sm font-bold text-white">🌱 100% 유기농 인증 식품</span>
           </div>
-          <h1 className="mb-4 text-4xl font-extrabold text-stone-900 sm:text-5xl">자연 그대로, 식탁 위로</h1>
-          <p className="mx-auto mb-8 max-w-lg text-base text-stone-600">
+          <h1 className="mb-4 text-4xl font-extrabold text-white drop-shadow-lg sm:text-5xl">자연 그대로, 식탁 위로</h1>
+          <p className="mx-auto mb-8 max-w-lg text-base text-white/80">
             농장에서 식탁까지 48시간. 전국 200곳 이상의 인증 농장에서 엄선한 식재료를 배송합니다.
           </p>
-          <span className="inline-block rounded-full bg-green-600 px-8 py-4 text-base font-bold text-white shadow-lg shadow-green-500/25 cursor-default">
+          <span className="inline-block rounded-full bg-green-500 px-8 py-4 text-base font-bold text-white shadow-lg shadow-green-500/30 cursor-default">
             첫 주문 30% 할인 →
           </span>
         </div>
