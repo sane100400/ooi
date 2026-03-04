@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-100 bg-white py-12 px-6 dark:border-emerald-800/30 dark:bg-emerald-950/50">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="mb-4 inline-block">
@@ -61,17 +61,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-slate-900 dark:text-white">
-              연락처
-            </h4>
-            <ul className="space-y-2.5 text-sm text-slate-500 dark:text-emerald-200/50">
-              <li>contact@ooi.kr</li>
-              <li>02-1234-5678</li>
-              <li>서울특별시 강남구</li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom bar */}
