@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "테크 스타트업 기업 사이트",
+    "category": "기업 사이트",
+    "description": "AI 기반 솔루션 기업의 브랜드 아이덴티티를 담은 기업 사이트",
+    "tags": ["Next.js", "TypeScript", "Tailwind"],
+    "color": "from-emerald-400 to-cyan-500",
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": "2",
+    "title": "프리미엄 패션 쇼핑몰",
+    "category": "쇼핑몰",
+    "description": "결제 시스템 연동과 재고 관리가 가능한 풀스택 이커머스 플랫폼",
+    "tags": ["React", "Node.js", "PostgreSQL"],
+    "color": "from-indigo-500 to-violet-600",
+    "createdAt": "2024-02-20"
+  },
+  {
+    "id": "3",
+    "title": "SaaS 제품 랜딩페이지",
+    "category": "랜딩페이지",
+    "description": "전환율 최적화 A/B 테스트를 거친 고성능 랜딩페이지",
+    "tags": ["Next.js", "Framer Motion", "Vercel"],
+    "color": "from-teal-400 to-emerald-600",
+    "createdAt": "2024-03-10"
+  },
+  {
+    "id": "4",
+    "title": "헬스케어 대시보드",
+    "category": "웹 앱",
+    "description": "실시간 데이터 시각화가 가능한 건강 관리 웹 애플리케이션",
+    "tags": ["React", "D3.js", "Firebase"],
+    "color": "from-blue-400 to-emerald-500",
+    "createdAt": "2024-04-05"
+  },
+  {
+    "id": "5",
+    "title": "건축 사무소 포트폴리오",
+    "category": "기업 사이트",
+    "description": "3D 인터랙션이 적용된 건축 사무소 포트폴리오 사이트",
+    "tags": ["Three.js", "GSAP", "Next.js"],
+    "color": "from-violet-500 to-indigo-600",
+    "createdAt": "2024-05-12"
+  },
+  {
+    "id": "6",
+    "title": "유기농 식품 쇼핑몰",
+    "category": "쇼핑몰",
+    "description": "구독형 결제와 정기 배송 시스템을 갖춘 식품 이커머스",
+    "tags": ["Next.js", "Stripe", "MongoDB"],
+    "color": "from-emerald-500 to-teal-600",
+    "createdAt": "2024-06-18"
+  }
+]
