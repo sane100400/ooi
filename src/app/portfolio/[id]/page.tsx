@@ -282,6 +282,25 @@ export default async function PortfolioDetailPage({
 
       {/* ===== MOCK SITE START ===== */}
 
+      {/* Tech Stack Bar */}
+      <div className="border-b border-slate-100 bg-slate-50">
+        <div className="mx-auto flex max-w-7xl items-center gap-4 overflow-x-auto px-6 py-3">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            Tech Stack
+          </span>
+          <div className="flex gap-2">
+            {item.tags.map((tag) => (
+              <span
+                key={tag}
+                className="shrink-0 rounded-full bg-white border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Nav */}
       <nav className="border-b border-slate-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -406,6 +425,39 @@ export default async function PortfolioDetailPage({
           <span className="inline-flex rounded-full bg-white px-8 py-4 text-base font-bold text-slate-900 shadow-lg cursor-default">
             {mock.ctaText}
           </span>
+        </div>
+      </section>
+
+      {/* Tech Stack Detail */}
+      <section className="py-20 px-6 bg-slate-900">
+        <div className="mx-auto max-w-5xl text-center">
+          <span className="mb-4 inline-block rounded-full bg-emerald-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+            Technology
+          </span>
+          <h2 className="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
+            사용된 기술 스택
+          </h2>
+          <p className="mx-auto mb-12 max-w-2xl text-slate-400">
+            이 프로젝트는 최신 기술 스택으로 구축되었습니다
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {item.tags.map((tag) => (
+              <div
+                key={tag}
+                className="group rounded-2xl border border-slate-700 bg-slate-800 px-6 py-4 transition-all hover:border-emerald-500/50 hover:bg-slate-800/80"
+              >
+                <span className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
+                  {tag}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800 px-5 py-2.5">
+            <span className="text-xs text-slate-400">제작</span>
+            <Link href="/" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+              OOi
+            </Link>
+          </div>
         </div>
       </section>
 
