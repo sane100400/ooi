@@ -40,12 +40,12 @@ function Site1() {
     <div className="min-h-screen bg-[#07080d] text-white" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
       <BackButton /><Badge />
       {/* Dot grid bg */}
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.12]" style={{
-        backgroundImage: "radial-gradient(circle, rgba(0,255,140,0.35) 1px, transparent 1px)",
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.08]" style={{
+        backgroundImage: "radial-gradient(circle, rgba(0,255,140,0.4) 1px, transparent 1px)",
         backgroundSize: "24px 24px",
       }} />
       {/* Scan line */}
-      <div className="pointer-events-none fixed inset-x-0 z-40 h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent" style={{ animation: "scan-line 4s linear infinite" }} />
+      <div className="pointer-events-none fixed inset-x-0 z-40 h-px bg-gradient-to-r from-transparent via-green-400/20 to-transparent" style={{ animation: "scan-line 4s linear infinite" }} />
 
       {/* Nav */}
       <nav className="relative z-10 border-b border-green-900/30 bg-black/50 backdrop-blur-xl">
@@ -55,7 +55,7 @@ function Site1() {
             <span className="text-lg font-bold tracking-wider">NEURAL<span className="text-cyan-400">X</span></span>
           </div>
           <div className="hidden items-center gap-6 md:flex">
-            {["제품","솔루션","API_DOCS","회사소개"].map(l => <span key={l} className="text-xs text-green-700 cursor-default hover:text-green-400 transition-colors">{`> ${l}`}</span>)}
+            {["제품","솔루션","API_DOCS","회사소개"].map(l => <span key={l} className="text-xs text-slate-400 cursor-default hover:text-green-400 transition-colors">{`> ${l}`}</span>)}
             <span className="rounded border border-cyan-500/40 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold text-cyan-400 cursor-default">DEMO</span>
           </div>
         </div>
@@ -63,24 +63,24 @@ function Site1() {
 
       {/* Hero */}
       <section className="relative z-10 overflow-hidden px-6 py-28 sm:py-36">
-        <div className="pointer-events-none absolute -top-20 left-1/3 h-[500px] w-[500px] rounded-full bg-green-500/[0.04] blur-[150px]" />
-        <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[300px] rounded-full bg-cyan-500/[0.04] blur-[100px]" />
+        <div className="pointer-events-none absolute -top-20 left-1/3 h-[500px] w-[500px] rounded-full bg-green-500/[0.06] blur-[150px]" />
+        <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[300px] rounded-full bg-cyan-500/[0.06] blur-[100px]" />
         <div className="relative mx-auto max-w-5xl">
-          <div className="mb-8 inline-flex items-center gap-3 rounded border border-green-800/50 bg-green-950/50 px-5 py-2.5">
-            <span className="text-[10px] text-green-700">[STATUS]</span>
+          <div className="mb-8 inline-flex items-center gap-3 rounded border border-green-700/40 bg-green-950/50 px-5 py-2.5">
+            <span className="text-[10px] text-green-500">[STATUS]</span>
             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs text-green-500">SYSTEM ONLINE — v4.2.1</span>
+            <span className="text-xs text-green-400">SYSTEM ONLINE — v4.2.1</span>
           </div>
           <h1 className="mb-8 text-5xl font-extrabold leading-tight tracking-tight sm:text-7xl" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
             <span className="text-green-400">데이터</span>에서 <span className="text-cyan-400">인사이트</span>를,
             <br />인사이트에서 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">성장</span>을
           </h1>
-          <p className="mb-10 max-w-2xl text-base leading-relaxed text-green-800" style={{ fontFamily: "system-ui, sans-serif" }}>
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-slate-400" style={{ fontFamily: "system-ui, sans-serif" }}>
             차세대 인공지능 솔루션으로 비즈니스 의사결정을 자동화하세요. 실시간 데이터 처리부터 예측 분석까지.
           </p>
           <div className="flex gap-4">
             <span className="rounded border border-green-500 bg-green-500/10 px-8 py-3.5 text-sm font-bold text-green-400 shadow-[0_0_20px_rgba(34,197,94,0.12)] cursor-default">$ init --demo</span>
-            <span className="rounded border border-green-900/40 px-8 py-3.5 text-sm text-green-700 cursor-default">docs →</span>
+            <span className="rounded border border-slate-700 px-8 py-3.5 text-sm text-slate-400 cursor-default">docs →</span>
           </div>
         </div>
       </section>
@@ -91,9 +91,9 @@ function Site1() {
           <div className="flex items-center justify-between border-b border-green-900/20 px-6 py-3">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[10px] text-green-700">LIVE DASHBOARD</span>
+              <span className="text-[10px] text-green-400">LIVE DASHBOARD</span>
             </div>
-            <span className="text-[10px] text-green-900">Updated 2s ago</span>
+            <span className="text-[10px] text-slate-600">Updated 2s ago</span>
           </div>
           {/* Ring Charts */}
           <div className="grid grid-cols-2 gap-px bg-green-900/10 p-px sm:grid-cols-4">
@@ -105,7 +105,7 @@ function Site1() {
             ].map(m => (
               <div key={m.label} className="bg-[#07080d] p-6 text-center">
                 <svg className="mx-auto h-20 w-20" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="2" />
+                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="2" />
                   <circle cx="18" cy="18" r="15.5" fill="none" stroke={m.color} strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeDasharray={C.toString()}
@@ -114,13 +114,13 @@ function Site1() {
                   />
                   <text x="18" y="17" textAnchor="middle" dominantBaseline="middle" fill="white" style={{ fontSize: "6.5px", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>{m.value}%</text>
                 </svg>
-                <p className="mt-3 text-[10px] text-green-700">{m.label}</p>
+                <p className="mt-3 text-[10px] text-slate-400">{m.label}</p>
               </div>
             ))}
           </div>
           {/* Bar chart */}
           <div className="border-t border-green-900/20 p-6">
-            <p className="mb-3 text-[10px] text-green-800">일일 처리량 (백만 건)</p>
+            <p className="mb-3 text-[10px] text-slate-500">일일 처리량 (백만 건)</p>
             <div className="flex items-end gap-1 h-20">
               {[45,62,78,55,90,72,85,93,68,88,95,82,70,91,87,76,94,89,73,96,84,79,92,88].map((h, i) => (
                 <div key={i} className="flex-1 rounded-t transition-all" style={{
@@ -139,17 +139,17 @@ function Site1() {
         <div className="mx-auto max-w-4xl rounded-lg border border-green-900/30 bg-black overflow-hidden">
           <div className="flex items-center gap-2 border-b border-green-900/20 px-4 py-2.5 bg-green-950/20">
             <div className="flex gap-1.5"><div className="h-2.5 w-2.5 rounded-full bg-red-500/60" /><div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" /><div className="h-2.5 w-2.5 rounded-full bg-green-500/60" /></div>
-            <span className="ml-3 text-[10px] text-green-800">neuralx@prod:~/analytics</span>
+            <span className="ml-3 text-[10px] text-slate-500">neuralx@prod:~/analytics</span>
           </div>
           <div className="p-5 text-xs leading-loose">
-            <p><span className="text-green-600">$</span> <span className="text-white">neuralx analyze</span> <span className="text-cyan-600">--source</span>=prod <span className="text-cyan-600">--model</span>=v4</p>
-            <p className="text-green-800">[INFO] Connecting to pipeline...</p>
-            <p className="text-green-800">[INFO] Loading model weights <span className="text-yellow-600/60">(2.4GB)</span>...</p>
-            <p className="text-cyan-600">[DONE] Model loaded in <span className="text-white">0.8s</span></p>
-            <p className="text-green-800">[PROC] Analyzing <span className="text-white">10,847,291</span> records...</p>
-            <p className="text-cyan-500">[OK] Accuracy: <span className="text-green-400 font-bold">99.2%</span> | Anomalies: <span className="text-yellow-500">47</span></p>
-            <p className="text-cyan-500">[OK] Revenue forecast: <span className="text-green-400 font-bold">+23.4%</span> <span className="text-green-800">(conf: 97.1%)</span></p>
-            <p className="mt-1"><span className="text-green-600">$</span> <span style={{ animation: "blink-cursor 1s step-end infinite" }}>█</span></p>
+            <p><span className="text-green-500">$</span> <span className="text-white">neuralx analyze</span> <span className="text-cyan-400">--source</span>=prod <span className="text-cyan-400">--model</span>=v4</p>
+            <p className="text-slate-500">[INFO] Connecting to pipeline...</p>
+            <p className="text-slate-500">[INFO] Loading model weights <span className="text-yellow-500">(2.4GB)</span>...</p>
+            <p className="text-cyan-400">[DONE] Model loaded in <span className="text-white">0.8s</span></p>
+            <p className="text-slate-500">[PROC] Analyzing <span className="text-white">10,847,291</span> records...</p>
+            <p className="text-cyan-400">[OK] Accuracy: <span className="text-green-400 font-bold">99.2%</span> | Anomalies: <span className="text-yellow-400">47</span></p>
+            <p className="text-cyan-400">[OK] Revenue forecast: <span className="text-green-400 font-bold">+23.4%</span> <span className="text-slate-500">(conf: 97.1%)</span></p>
+            <p className="mt-1"><span className="text-green-500">$</span> <span style={{ animation: "blink-cursor 1s step-end infinite" }}>█</span></p>
           </div>
         </div>
       </section>
@@ -157,7 +157,7 @@ function Site1() {
       {/* Features */}
       <section className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-green-800">[CAPABILITIES]</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500">[CAPABILITIES]</span>
           <h2 className="mt-2 mb-12 text-3xl font-bold text-green-400" style={{ fontFamily: "'Outfit', sans-serif" }}>핵심 모듈</h2>
           <div className="grid gap-px bg-green-900/15 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -171,11 +171,11 @@ function Site1() {
               <div key={f.code} className="group bg-[#07080d] p-8 transition-all hover:bg-green-500/[0.03]">
                 <div className="mb-4 flex items-center gap-3">
                   <span className="text-2xl">{f.icon}</span>
-                  <span className="rounded bg-green-950/60 px-2 py-0.5 text-[9px] tracking-wider text-green-700 border border-green-900/30">{f.code}</span>
+                  <span className="rounded bg-green-950/60 px-2 py-0.5 text-[9px] tracking-wider text-green-500 border border-green-800/30">{f.code}</span>
                 </div>
-                <h3 className="mb-2 text-base font-bold text-green-300" style={{ fontFamily: "system-ui" }}>{f.title}</h3>
-                <p className="text-sm leading-relaxed text-green-900" style={{ fontFamily: "system-ui" }}>{f.desc}</p>
-                <div className="mt-4 text-2xl font-extrabold text-cyan-500/60">{f.stat}</div>
+                <h3 className="mb-2 text-base font-bold text-white" style={{ fontFamily: "system-ui" }}>{f.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-400" style={{ fontFamily: "system-ui" }}>{f.desc}</p>
+                <div className="mt-4 text-2xl font-extrabold text-cyan-400/70">{f.stat}</div>
               </div>
             ))}
           </div>
@@ -184,9 +184,9 @@ function Site1() {
 
       {/* CTA */}
       <section className="relative z-10 py-24 px-6 text-center">
-        <p className="mb-3 text-[10px] tracking-[0.3em] text-green-800">[DEPLOYMENT_READY]</p>
+        <p className="mb-3 text-[10px] tracking-[0.3em] text-slate-500">[DEPLOYMENT_READY]</p>
         <h2 className="mb-4 text-3xl font-bold text-green-400" style={{ fontFamily: "'Outfit', sans-serif" }}>지금 바로 시작하세요</h2>
-        <p className="mb-8 text-sm text-green-900" style={{ fontFamily: "system-ui" }}>14일 무료 체험. 카드 등록 없음.</p>
+        <p className="mb-8 text-sm text-slate-400" style={{ fontFamily: "system-ui" }}>14일 무료 체험. 카드 등록 없음.</p>
         <span className="inline-block rounded border border-cyan-500 bg-cyan-500/10 px-10 py-4 text-sm font-bold text-cyan-400 shadow-[0_0_25px_rgba(6,182,212,0.12)] cursor-default">$ neuralx init --free-trial</span>
       </section>
       <Credit brand="NeuralX" dark />
@@ -866,9 +866,6 @@ function Site6() {
           </div>
         </div>
       </section>
-
-      {/* Wavy divider */}
-      <div className="relative h-12 -mt-1"><svg className="absolute bottom-0 w-full" viewBox="0 0 1440 48" preserveAspectRatio="none" fill="#fffdf7"><path d="M0,48 L0,16 Q180,48 360,16 Q540,-16 720,16 Q900,48 1080,16 Q1260,-16 1440,16 L1440,48Z" /></svg></div>
 
       {/* Products */}
       <section className="py-16 px-6">
