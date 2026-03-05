@@ -31,103 +31,92 @@ function Credit({ brand, dark }: { brand: string; dark?: boolean }) {
   );
 }
 
+
 /* ════════════════════════════════════════════
-   1. NeuralX — Cyberpunk Data Lab
+   1. NeuralX — Clean Dark AI Tech
    ════════════════════════════════════════════ */
 function Site1() {
-  const C = 97.39; // circumference for r=15.5
+  const C = 97.39;
   return (
-    <div className="min-h-screen bg-[#07080d] text-white" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+    <div className="min-h-screen bg-[#0f1117] text-slate-200" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
       <BackButton /><Badge />
-      {/* Dot grid bg */}
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.08]" style={{
-        backgroundImage: "radial-gradient(circle, rgba(0,255,140,0.4) 1px, transparent 1px)",
-        backgroundSize: "24px 24px",
+      {/* Subtle grid bg */}
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]" style={{
+        backgroundImage: "linear-gradient(rgba(148,163,184,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.5) 1px, transparent 1px)",
+        backgroundSize: "48px 48px",
       }} />
-      {/* Scan line */}
-      <div className="pointer-events-none fixed inset-x-0 z-40 h-px bg-gradient-to-r from-transparent via-green-400/20 to-transparent" style={{ animation: "scan-line 4s linear infinite" }} />
 
       {/* Nav */}
-      <nav className="relative z-10 border-b border-green-900/30 bg-black/50 backdrop-blur-xl">
+      <nav className="relative z-10 border-b border-slate-800 bg-[#0f1117]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" style={{ animation: "pulse-glow 2s ease-in-out infinite" }} />
-            <span className="text-lg font-bold tracking-wider">NEURAL<span className="text-cyan-400">X</span></span>
+            <div className="h-2 w-2 rounded-full bg-blue-400" />
+            <span className="text-lg font-bold tracking-wider text-white">Neural<span className="text-blue-400">X</span></span>
           </div>
           <div className="hidden items-center gap-6 md:flex">
-            {["제품","솔루션","API_DOCS","회사소개"].map(l => <span key={l} className="text-xs text-slate-400 cursor-default hover:text-green-400 transition-colors">{`> ${l}`}</span>)}
-            <span className="rounded border border-cyan-500/40 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold text-cyan-400 cursor-default">DEMO</span>
+            {["제품","솔루션","API","회사소개"].map(l => <span key={l} className="text-xs text-slate-500 cursor-default hover:text-slate-300 transition-colors">{l}</span>)}
+            <span className="rounded-lg bg-blue-500 px-4 py-1.5 text-xs font-bold text-white cursor-default">데모 신청</span>
           </div>
         </div>
       </nav>
 
       {/* Hero */}
       <section className="relative z-10 overflow-hidden px-6 py-28 sm:py-36">
-        <div className="pointer-events-none absolute -top-20 left-1/3 h-[500px] w-[500px] rounded-full bg-green-500/[0.06] blur-[150px]" />
-        <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[300px] rounded-full bg-cyan-500/[0.06] blur-[100px]" />
+        <div className="pointer-events-none absolute -top-20 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-500/[0.06] blur-[150px]" />
+        <div className="pointer-events-none absolute bottom-0 right-1/4 h-[350px] w-[350px] rounded-full bg-indigo-500/[0.05] blur-[120px]" />
         <div className="relative mx-auto max-w-5xl">
-          <div className="mb-8 inline-flex items-center gap-3 rounded border border-green-700/40 bg-green-950/50 px-5 py-2.5">
-            <span className="text-[10px] text-green-500">[STATUS]</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs text-green-400">SYSTEM ONLINE — v4.2.1</span>
+          <div className="mb-8 inline-flex items-center gap-3 rounded-lg border border-slate-700/60 bg-slate-800/50 px-5 py-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-xs text-slate-400">Enterprise AI Platform v4.2</span>
           </div>
-          <h1 className="mb-8 text-5xl font-extrabold leading-tight tracking-tight sm:text-7xl" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-            <span className="text-green-400">데이터</span>에서 <span className="text-cyan-400">인사이트</span>를,
-            <br />인사이트에서 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">성장</span>을
+          <h1 className="mb-8 text-5xl font-extrabold leading-tight tracking-tight text-white sm:text-7xl" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
+            데이터에서 <span className="text-blue-400">인사이트</span>를,<br />인사이트에서 <span className="text-blue-400">성장</span>을
           </h1>
           <p className="mb-10 max-w-2xl text-base leading-relaxed text-slate-400" style={{ fontFamily: "system-ui, sans-serif" }}>
             차세대 인공지능 솔루션으로 비즈니스 의사결정을 자동화하세요. 실시간 데이터 처리부터 예측 분석까지.
           </p>
           <div className="flex gap-4">
-            <span className="rounded border border-green-500 bg-green-500/10 px-8 py-3.5 text-sm font-bold text-green-400 shadow-[0_0_20px_rgba(34,197,94,0.12)] cursor-default">$ init --demo</span>
-            <span className="rounded border border-slate-700 px-8 py-3.5 text-sm text-slate-400 cursor-default">docs →</span>
+            <span className="rounded-lg bg-blue-500 px-8 py-3.5 text-sm font-bold text-white cursor-default">무료 데모 시작</span>
+            <span className="rounded-lg border border-slate-700 px-8 py-3.5 text-sm text-slate-300 cursor-default">기술 문서 →</span>
           </div>
         </div>
       </section>
 
-      {/* Live Dashboard Mockup */}
+      {/* Live Dashboard */}
       <section className="relative z-10 px-6 py-16">
-        <div className="mx-auto max-w-5xl rounded-xl border border-green-900/30 bg-black/60 backdrop-blur overflow-hidden">
-          <div className="flex items-center justify-between border-b border-green-900/20 px-6 py-3">
+        <div className="mx-auto max-w-5xl rounded-xl border border-slate-800 bg-[#161922] overflow-hidden">
+          <div className="flex items-center justify-between border-b border-slate-800 px-6 py-3">
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[10px] text-green-400">LIVE DASHBOARD</span>
+              <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-[11px] font-medium text-slate-400">실시간 대시보드</span>
             </div>
-            <span className="text-[10px] text-slate-600">Updated 2s ago</span>
+            <span className="text-[10px] text-slate-600">2초 전 업데이트</span>
           </div>
-          {/* Ring Charts */}
-          <div className="grid grid-cols-2 gap-px bg-green-900/10 p-px sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-px bg-slate-800/50 p-px sm:grid-cols-4">
             {[
-              { label: "모델 정확도", value: 99.2, color: "#00ff8c" },
-              { label: "시스템 가동률", value: 99.9, color: "#00d4ff" },
-              { label: "처리 효율", value: 94.7, color: "#a855f7" },
-              { label: "보안 점수", value: 98.1, color: "#f59e0b" },
+              { label: "모델 정확도", value: 99.2, color: "#60a5fa" },
+              { label: "시스템 가동률", value: 99.9, color: "#34d399" },
+              { label: "처리 효율", value: 94.7, color: "#a78bfa" },
+              { label: "보안 점수", value: 98.1, color: "#fbbf24" },
             ].map(m => (
-              <div key={m.label} className="bg-[#07080d] p-6 text-center">
+              <div key={m.label} className="bg-[#161922] p-6 text-center">
                 <svg className="mx-auto h-20 w-20" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="2" />
+                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
                   <circle cx="18" cy="18" r="15.5" fill="none" stroke={m.color} strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeDasharray={C.toString()}
+                    strokeLinecap="round" strokeDasharray={C.toString()}
                     strokeDashoffset={(C * (1 - m.value / 100)).toString()}
-                    style={{ transform: "rotate(-90deg)", transformOrigin: "center", filter: `drop-shadow(0 0 6px ${m.color})` }}
-                  />
+                    style={{ transform: "rotate(-90deg)", transformOrigin: "center" }} />
                   <text x="18" y="17" textAnchor="middle" dominantBaseline="middle" fill="white" style={{ fontSize: "6.5px", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>{m.value}%</text>
                 </svg>
-                <p className="mt-3 text-[10px] text-slate-400">{m.label}</p>
+                <p className="mt-3 text-[11px] text-slate-500">{m.label}</p>
               </div>
             ))}
           </div>
-          {/* Bar chart */}
-          <div className="border-t border-green-900/20 p-6">
-            <p className="mb-3 text-[10px] text-slate-500">일일 처리량 (백만 건)</p>
+          <div className="border-t border-slate-800 p-6">
+            <p className="mb-3 text-[11px] text-slate-500">일일 처리량 (백만 건)</p>
             <div className="flex items-end gap-1 h-20">
               {[45,62,78,55,90,72,85,93,68,88,95,82,70,91,87,76,94,89,73,96,84,79,92,88].map((h, i) => (
-                <div key={i} className="flex-1 rounded-t transition-all" style={{
-                  height: `${h}%`,
-                  background: `linear-gradient(to top, rgba(0,255,140,0.15), rgba(0,255,140,${h / 130}))`,
-                  boxShadow: h > 90 ? "0 0 8px rgba(0,255,140,0.25)" : "none",
-                }} />
+                <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, background: `linear-gradient(to top, rgba(96,165,250,0.08), rgba(96,165,250,${h/160}))` }} />
               ))}
             </div>
           </div>
@@ -136,20 +125,20 @@ function Site1() {
 
       {/* Terminal */}
       <section className="relative z-10 px-6 py-12">
-        <div className="mx-auto max-w-4xl rounded-lg border border-green-900/30 bg-black overflow-hidden">
-          <div className="flex items-center gap-2 border-b border-green-900/20 px-4 py-2.5 bg-green-950/20">
-            <div className="flex gap-1.5"><div className="h-2.5 w-2.5 rounded-full bg-red-500/60" /><div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" /><div className="h-2.5 w-2.5 rounded-full bg-green-500/60" /></div>
-            <span className="ml-3 text-[10px] text-slate-500">neuralx@prod:~/analytics</span>
+        <div className="mx-auto max-w-4xl rounded-xl border border-slate-800 bg-[#161922] overflow-hidden">
+          <div className="flex items-center gap-2 border-b border-slate-800 px-4 py-2.5">
+            <div className="flex gap-1.5"><div className="h-2.5 w-2.5 rounded-full bg-slate-700" /><div className="h-2.5 w-2.5 rounded-full bg-slate-700" /><div className="h-2.5 w-2.5 rounded-full bg-slate-700" /></div>
+            <span className="ml-3 text-[10px] text-slate-600">neuralx@prod:~/analytics</span>
           </div>
           <div className="p-5 text-xs leading-loose">
-            <p><span className="text-green-500">$</span> <span className="text-white">neuralx analyze</span> <span className="text-cyan-400">--source</span>=prod <span className="text-cyan-400">--model</span>=v4</p>
-            <p className="text-slate-500">[INFO] Connecting to pipeline...</p>
-            <p className="text-slate-500">[INFO] Loading model weights <span className="text-yellow-500">(2.4GB)</span>...</p>
-            <p className="text-cyan-400">[DONE] Model loaded in <span className="text-white">0.8s</span></p>
-            <p className="text-slate-500">[PROC] Analyzing <span className="text-white">10,847,291</span> records...</p>
-            <p className="text-cyan-400">[OK] Accuracy: <span className="text-green-400 font-bold">99.2%</span> | Anomalies: <span className="text-yellow-400">47</span></p>
-            <p className="text-cyan-400">[OK] Revenue forecast: <span className="text-green-400 font-bold">+23.4%</span> <span className="text-slate-500">(conf: 97.1%)</span></p>
-            <p className="mt-1"><span className="text-green-500">$</span> <span style={{ animation: "blink-cursor 1s step-end infinite" }}>█</span></p>
+            <p><span className="text-blue-400">$</span> <span className="text-slate-200">neuralx analyze</span> <span className="text-slate-500">--source=prod --model=v4</span></p>
+            <p className="text-slate-600">[INFO] Connecting to pipeline...</p>
+            <p className="text-slate-600">[INFO] Loading model weights (2.4GB)...</p>
+            <p className="text-emerald-400/80">[DONE] Model loaded in 0.8s</p>
+            <p className="text-slate-600">[PROC] Analyzing 10,847,291 records...</p>
+            <p className="text-emerald-400/80">[OK] Accuracy: <span className="text-white font-semibold">99.2%</span> | Anomalies: <span className="text-amber-400/80">47</span></p>
+            <p className="text-emerald-400/80">[OK] Revenue forecast: <span className="text-white font-semibold">+23.4%</span> <span className="text-slate-600">(conf: 97.1%)</span></p>
+            <p className="mt-1"><span className="text-blue-400">$</span> <span className="text-slate-500" style={{ animation: "blink-cursor 1s step-end infinite" }}>█</span></p>
           </div>
         </div>
       </section>
@@ -157,25 +146,21 @@ function Site1() {
       {/* Features */}
       <section className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500">[CAPABILITIES]</span>
-          <h2 className="mt-2 mb-12 text-3xl font-bold text-green-400" style={{ fontFamily: "'Outfit', sans-serif" }}>핵심 모듈</h2>
-          <div className="grid gap-px bg-green-900/15 sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="mb-12 text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>핵심 기능</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: "🧠", code: "AI_CORE", title: "딥러닝 엔진", desc: "자체 AI 모델 99.2% 정확도. 데이터가 쌓일수록 더 똑똑해집니다.", stat: "99.2%" },
-              { icon: "⚡", code: "RT_PROC", title: "실시간 처리", desc: "밀리초 단위 응답. 즉각적인 비즈니스 인사이트.", stat: "<50ms" },
-              { icon: "🔒", code: "SEC_MOD", title: "엔터프라이즈 보안", desc: "SOC2, ISO27001 인증 보안 체계.", stat: "SOC2" },
-              { icon: "📊", code: "VIS_DAT", title: "시각화 대시보드", desc: "복잡한 데이터를 직관적 차트로.", stat: "100+" },
-              { icon: "🔗", code: "API_INT", title: "API 연동", desc: "RESTful API로 기존 시스템과 빠른 통합.", stat: "REST" },
-              { icon: "☁️", code: "CLD_DEP", title: "멀티 클라우드", desc: "AWS, GCP, Azure 원하는 곳에 배포.", stat: "3+" },
+              { icon: "🧠", title: "딥러닝 엔진", desc: "자체 AI 모델 99.2% 정확도. 데이터가 쌓일수록 더 똑똑해집니다.", stat: "99.2%" },
+              { icon: "⚡", title: "실시간 처리", desc: "밀리초 단위 응답. 즉각적인 비즈니스 인사이트.", stat: "<50ms" },
+              { icon: "🔒", title: "엔터프라이즈 보안", desc: "SOC2, ISO27001 인증 보안 체계.", stat: "SOC2" },
+              { icon: "📊", title: "시각화 대시보드", desc: "복잡한 데이터를 직관적 차트로.", stat: "100+" },
+              { icon: "🔗", title: "API 연동", desc: "RESTful API로 기존 시스템과 빠른 통합.", stat: "REST" },
+              { icon: "☁️", title: "멀티 클라우드", desc: "AWS, GCP, Azure 원하는 곳에 배포.", stat: "3+" },
             ].map(f => (
-              <div key={f.code} className="group bg-[#07080d] p-8 transition-all hover:bg-green-500/[0.03]">
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="text-2xl">{f.icon}</span>
-                  <span className="rounded bg-green-950/60 px-2 py-0.5 text-[9px] tracking-wider text-green-500 border border-green-800/30">{f.code}</span>
-                </div>
+              <div key={f.title} className="rounded-xl border border-slate-800 bg-[#161922] p-7 transition-all hover:border-slate-700">
+                <div className="mb-4 text-2xl">{f.icon}</div>
                 <h3 className="mb-2 text-base font-bold text-white" style={{ fontFamily: "system-ui" }}>{f.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-400" style={{ fontFamily: "system-ui" }}>{f.desc}</p>
-                <div className="mt-4 text-2xl font-extrabold text-cyan-400/70">{f.stat}</div>
+                <p className="text-sm leading-relaxed text-slate-500" style={{ fontFamily: "system-ui" }}>{f.desc}</p>
+                <div className="mt-4 text-xl font-extrabold text-blue-400/80">{f.stat}</div>
               </div>
             ))}
           </div>
@@ -184,10 +169,9 @@ function Site1() {
 
       {/* CTA */}
       <section className="relative z-10 py-24 px-6 text-center">
-        <p className="mb-3 text-[10px] tracking-[0.3em] text-slate-500">[DEPLOYMENT_READY]</p>
-        <h2 className="mb-4 text-3xl font-bold text-green-400" style={{ fontFamily: "'Outfit', sans-serif" }}>지금 바로 시작하세요</h2>
-        <p className="mb-8 text-sm text-slate-400" style={{ fontFamily: "system-ui" }}>14일 무료 체험. 카드 등록 없음.</p>
-        <span className="inline-block rounded border border-cyan-500 bg-cyan-500/10 px-10 py-4 text-sm font-bold text-cyan-400 shadow-[0_0_25px_rgba(6,182,212,0.12)] cursor-default">$ neuralx init --free-trial</span>
+        <h2 className="mb-4 text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>지금 바로 시작하세요</h2>
+        <p className="mb-8 text-sm text-slate-500" style={{ fontFamily: "system-ui" }}>14일 무료 체험. 카드 등록 없음.</p>
+        <span className="inline-block rounded-lg bg-blue-500 px-10 py-4 text-sm font-bold text-white cursor-default">무료 데모 신청</span>
       </section>
       <Credit brand="NeuralX" dark />
     </div>
@@ -195,7 +179,7 @@ function Site1() {
 }
 
 /* ════════════════════════════════════════════
-   2. MAISON ÉLITE — Cinematic Fashion Editorial
+   2. MAISON ÉLITE — Luxury Fashion Editorial (Light)
    ════════════════════════════════════════════ */
 function Site2() {
   const products = [
@@ -208,139 +192,123 @@ function Site2() {
   ];
   const serif = { fontFamily: "'Cormorant Garamond', Georgia, serif" };
   return (
-    <div className="min-h-screen bg-[#0b0b0b] text-white">
+    <div className="min-h-screen bg-[#faf8f5]">
       <BackButton /><Badge />
 
       {/* Nav */}
-      <nav className="border-b border-white/[0.04]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-10 py-8">
-          <span className="text-[26px] font-light tracking-[0.35em] text-white/90" style={serif}>MAISON ÉLITE</span>
-          <div className="hidden items-center gap-12 md:flex">
-            {["COLLECTION","LOOKBOOK","ABOUT"].map(l => <span key={l} className="text-[10px] font-light tracking-[0.25em] text-white/30 cursor-default hover:text-white/70 transition-colors duration-500">{l}</span>)}
-            <span className="text-[10px] tracking-[0.15em] text-white/40 cursor-default">BAG (0)</span>
+      <nav className="border-b border-stone-200">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-10 py-7">
+          <span className="text-[22px] font-light tracking-[0.3em] text-stone-800" style={serif}>MAISON ÉLITE</span>
+          <div className="hidden items-center gap-10 md:flex">
+            {["COLLECTION","LOOKBOOK","ABOUT"].map(l => <span key={l} className="text-[10px] font-medium tracking-[0.2em] text-stone-400 cursor-default hover:text-stone-700 transition-colors">{l}</span>)}
+            <span className="text-[10px] tracking-[0.15em] text-stone-500 cursor-default">BAG (0)</span>
           </div>
         </div>
       </nav>
 
-      {/* Hero — cinematic full bleed */}
-      <section className="relative h-screen max-h-[920px] overflow-hidden">
+      {/* Hero */}
+      <section className="relative h-[85vh] max-h-[800px] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&h=900&fit=crop" alt="" className="h-full w-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="absolute bottom-16 left-8 right-8 sm:left-14">
-          <p className="mb-5 text-[10px] font-light tracking-[0.5em] text-white/40">2025 SPRING / SUMMER</p>
-          <h1 className="text-6xl font-light leading-[0.92] tracking-tight sm:text-8xl lg:text-[112px]" style={serif}>
-            Eternal
-            <br /><em className="font-light">Elegance</em>
+          <p className="mb-4 text-[10px] font-medium tracking-[0.4em] text-white/70">2025 SPRING / SUMMER</p>
+          <h1 className="text-5xl font-light leading-[0.95] text-white sm:text-7xl lg:text-8xl" style={serif}>
+            Eternal<br /><em className="font-light">Elegance</em>
           </h1>
-          <div className="mt-8 flex items-center gap-6">
-            <span className="border-b border-white/40 pb-1 text-[11px] tracking-[0.2em] text-white/60 cursor-default">EXPLORE →</span>
-            <span className="text-[11px] text-white/20">SS25</span>
-          </div>
-        </div>
-        {/* Scroll hint */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2" style={{ animation: "scroll-hint-bounce 2s ease-in-out infinite" }}>
-          <div className="h-8 w-[1px] bg-gradient-to-b from-transparent to-white/30" />
+          <span className="mt-8 inline-block border-b border-white/60 pb-1 text-[11px] tracking-[0.2em] text-white/80 cursor-default">컬렉션 보기 →</span>
         </div>
       </section>
 
       {/* Statement */}
-      <section className="py-32 px-10">
+      <section className="py-28 px-10">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-3xl font-light leading-relaxed text-white/50 sm:text-4xl" style={serif}>
-            &ldquo;시간이 지나도<br />변하지 않는 가치를<br />추구합니다&rdquo;
+          <p className="text-2xl font-light leading-relaxed text-stone-500 sm:text-3xl" style={serif}>
+            &ldquo;시간이 지나도 변하지 않는<br />가치를 추구합니다&rdquo;
           </p>
-          <div className="mx-auto mt-10 h-px w-12 bg-white/10" />
+          <div className="mx-auto mt-8 h-px w-12 bg-stone-300" />
         </div>
       </section>
 
       {/* Horizontal scroll products */}
-      <section className="pb-28">
-        <div className="mb-10 flex items-center justify-between px-10">
-          <span className="text-[10px] tracking-[0.3em] text-white/25">EDITOR&apos;S PICK</span>
-          <span className="text-[10px] tracking-[0.2em] text-white/25 cursor-default">SCROLL →</span>
+      <section className="pb-24">
+        <div className="mb-8 flex items-center justify-between px-10">
+          <span className="text-[10px] font-medium tracking-[0.25em] text-stone-400">EDITOR&apos;S PICK</span>
+          <span className="text-[10px] tracking-[0.15em] text-stone-400 cursor-default">스크롤 →</span>
         </div>
         <div className="flex gap-5 overflow-x-auto scrollbar-hide px-10 pb-4" style={{ scrollSnapType: "x mandatory" }}>
           {products.map((p, i) => (
-            <div key={i} className="group w-[300px] shrink-0 sm:w-[340px]" style={{ scrollSnapAlign: "start" }}>
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img src={p.img} alt="" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.04]" loading="lazy" />
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-700 group-hover:bg-black/20" />
-                {p.tag && <span className="absolute top-5 left-5 text-[9px] tracking-[0.3em] text-white/70">{p.tag}</span>}
-                {/* Hover reveal */}
-                <div className="absolute bottom-0 left-0 right-0 translate-y-full transition-transform duration-500 group-hover:translate-y-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <span className="text-[10px] tracking-[0.15em] text-white/80 cursor-default">+ ADD TO BAG</span>
-                </div>
+            <div key={i} className="group w-[280px] shrink-0 sm:w-[320px]" style={{ scrollSnapAlign: "start" }}>
+              <div className="relative aspect-[3/4] overflow-hidden bg-stone-100">
+                <img src={p.img} alt="" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.03]" loading="lazy" />
+                {p.tag && <span className="absolute top-4 left-4 bg-stone-800 px-2.5 py-1 text-[9px] font-bold text-white tracking-wider">{p.tag}</span>}
               </div>
-              <div className="mt-4 flex items-baseline justify-between px-1">
-                <span className="text-xs font-light tracking-wide text-white/50">{p.name}</span>
-                <span className="text-xs text-white/30">{p.price}</span>
+              <div className="mt-4 flex items-baseline justify-between">
+                <span className="text-sm text-stone-700">{p.name}</span>
+                <span className="text-sm text-stone-400">{p.price}</span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Editorial numbered section */}
-      <section className="border-t border-white/[0.04] py-28 px-10">
+      {/* Editorial sections */}
+      <section className="border-t border-stone-200 py-24 px-10">
         <div className="mx-auto max-w-6xl">
           {[
             { n: "01", title: "Curated Selection", desc: "전 세계 프리미엄 브랜드를 한곳에서. 200개 이상의 럭셔리 브랜드를 큐레이션합니다.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" },
             { n: "02", title: "Personal Styling", desc: "전담 스타일리스트가 고객의 취향과 라이프스타일에 맞는 아이템을 추천합니다.", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=400&fit=crop" },
           ].map((s, i) => (
-            <div key={s.n} className={`grid gap-10 lg:grid-cols-2 items-center ${i > 0 ? "mt-24" : ""}`}>
+            <div key={s.n} className={`grid gap-10 lg:grid-cols-2 items-center ${i > 0 ? "mt-20" : ""}`}>
               <div className={i % 2 ? "lg:order-2" : ""}>
-                <span className="text-[80px] font-extralight leading-none text-white/[0.04]" style={serif}>{s.n}</span>
-                <h3 className="mt-2 text-2xl font-light text-white/70" style={serif}>{s.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-white/30" style={{ fontFamily: "system-ui" }}>{s.desc}</p>
+                <span className="text-[72px] font-extralight leading-none text-stone-200" style={serif}>{s.n}</span>
+                <h3 className="mt-2 text-2xl font-light text-stone-700" style={serif}>{s.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-stone-500">{s.desc}</p>
               </div>
               <div className={i % 2 ? "lg:order-1" : ""}>
-                <div className="aspect-[3/2] overflow-hidden">
-                  <img src={s.img} alt="" className="h-full w-full object-cover" loading="lazy" />
-                </div>
+                <div className="aspect-[3/2] overflow-hidden bg-stone-100"><img src={s.img} alt="" className="h-full w-full object-cover" loading="lazy" /></div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Lookbook full bleed */}
-      <section className="relative h-[70vh]">
+      {/* Lookbook */}
+      <section className="relative h-[60vh]">
         <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&h=500&fit=crop" alt="" className="h-full w-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <div className="text-center">
-            <span className="text-[9px] tracking-[0.5em] text-white/40">LOOKBOOK</span>
-            <h2 className="mt-3 text-5xl font-light italic text-white sm:text-7xl" style={serif}>The Art of Dressing</h2>
+            <span className="text-[9px] tracking-[0.4em] text-white/60">LOOKBOOK</span>
+            <h2 className="mt-3 text-5xl font-light italic text-white sm:text-6xl" style={serif}>The Art of Dressing</h2>
           </div>
         </div>
       </section>
 
-      {/* Services + Newsletter */}
-      <section className="py-20 px-8">
-        <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-4">
-          {[{ t: "무료 배송", d: "10만원 이상" },{ t: "정품 보증", d: "100% 정품" },{ t: "무료 반품", d: "14일 이내" },{ t: "VIP 혜택", d: "멤버십 전용" }].map(s => (
-            <div key={s.t} className="text-center">
-              <h3 className="text-[11px] tracking-[0.2em] text-white/40">{s.t}</h3>
-              <p className="mt-1 text-[10px] text-white/15">{s.d}</p>
+      {/* Services */}
+      <section className="border-y border-stone-200 bg-white">
+        <div className="mx-auto grid max-w-7xl divide-y divide-stone-100 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+          {[{ icon: "✦", t: "무료 배송", d: "10만원 이상 구매 시" },{ icon: "◇", t: "정품 보증", d: "100% 정품만 취급" },{ icon: "↻", t: "무료 반품", d: "14일 이내 무료" },{ icon: "♔", t: "VIP 혜택", d: "멤버십 전용 세일" }].map(s => (
+            <div key={s.t} className="px-8 py-8 text-center">
+              <div className="mb-2 text-base text-stone-400">{s.icon}</div>
+              <h3 className="text-sm font-semibold text-stone-800">{s.t}</h3>
+              <p className="mt-1 text-xs text-stone-400">{s.d}</p>
             </div>
           ))}
         </div>
       </section>
-      <section className="border-t border-white/[0.04] py-24 px-6 text-center">
-        <p className="text-[10px] tracking-[0.4em] text-white/20">NEWSLETTER</p>
-        <h2 className="mt-4 text-2xl font-light text-white/50" style={serif}>컬렉션 소식을 가장 먼저</h2>
-        <div className="mx-auto mt-8 flex max-w-sm border-b border-white/10">
-          <div className="flex-1 pb-3 text-sm text-white/15">이메일 주소</div>
-          <span className="pb-3 text-[11px] tracking-[0.15em] text-white/40 cursor-default">→</span>
+
+      {/* Newsletter */}
+      <section className="bg-stone-800 py-20 px-6 text-center">
+        <h2 className="mb-3 text-2xl font-light text-white" style={serif}>뉴스레터 구독</h2>
+        <p className="mb-8 text-sm text-stone-400">새로운 컬렉션과 시크릿 세일 정보를 가장 먼저 받아보세요.</p>
+        <div className="mx-auto flex max-w-md gap-2">
+          <div className="flex-1 rounded-lg border border-stone-600 bg-stone-700 px-4 py-3 text-sm text-stone-400">이메일 주소</div>
+          <span className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-stone-800 cursor-default">구독</span>
         </div>
       </section>
-      <Credit brand="MAISON ÉLITE" dark />
+      <Credit brand="MAISON ÉLITE" />
     </div>
   );
 }
-
-/* ════════════════════════════════════════════
-   3. FlowDesk — Glassmorphism Bento SaaS
-   ════════════════════════════════════════════ */
 function Site3() {
   return (
     <div className="min-h-screen bg-[#0c0618] text-white overflow-hidden" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
