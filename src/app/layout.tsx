@@ -13,15 +13,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OOi | 웹사이트 외주 전문",
+  metadataBase: new URL("https://oois.app"),
+  title: {
+    default: "OOi | 웹사이트 외주 전문",
+    template: "%s | OOi",
+  },
   description:
     "비즈니스에 최적화된 웹사이트를 기획부터 개발, 운영까지. OOi는 고객 맞춤형 웹 솔루션을 제공합니다.",
-  keywords: ["웹사이트 외주", "홈페이지 제작", "웹 개발", "OOi", "웹 에이전시"],
+  keywords: [
+    "웹사이트 외주",
+    "홈페이지 제작",
+    "웹 개발",
+    "웹사이트 제작",
+    "홈페이지 외주",
+    "웹 에이전시",
+    "반응형 웹사이트",
+    "랜딩페이지 제작",
+    "OOi",
+  ],
   openGraph: {
     title: "OOi | 웹사이트 외주 전문",
     description:
       "비즈니스에 최적화된 웹사이트를 기획부터 개발, 운영까지.",
+    url: "https://oois.app",
+    siteName: "OOi",
     type: "website",
+    locale: "ko_KR",
+  },
+  alternates: {
+    canonical: "https://oois.app",
   },
 };
 
