@@ -1,6 +1,62 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { readPortfolio } from "@/lib/portfolio";
 import { notFound } from "next/navigation";
+
+const portfolioMeta: Record<string, { title: string; description: string }> = {
+  "1": {
+    title: "NeuralX - AI 테크 기업 사이트",
+    description:
+      "OOi가 제작한 NeuralX AI 기업 웹사이트. 다크 테마의 세련된 테크 기업 홈페이지 포트폴리오.",
+  },
+  "2": {
+    title: "MAISON ELITE - 럭셔리 브랜드 사이트",
+    description:
+      "OOi가 제작한 MAISON ELITE 럭셔리 브랜드 웹사이트. 고급스러운 디자인의 브랜드 홈페이지 포트폴리오.",
+  },
+  "3": {
+    title: "FlowDesk - SaaS 프로덕트 사이트",
+    description:
+      "OOi가 제작한 FlowDesk 프로젝트 관리 SaaS 웹사이트. 깔끔한 SaaS 랜딩페이지 포트폴리오.",
+  },
+  "4": {
+    title: "VitaTrack - 헬스케어 앱 사이트",
+    description:
+      "OOi가 제작한 VitaTrack 건강관리 앱 웹사이트. 모바일 앱 소개 랜딩페이지 포트폴리오.",
+  },
+  "5": {
+    title: "ARCHI STUDIO - 건축 스튜디오 사이트",
+    description:
+      "OOi가 제작한 ARCHI STUDIO 건축 사무소 웹사이트. 미니멀한 건축 포트폴리오 사이트.",
+  },
+  "6": {
+    title: "그린마켓 - 친환경 쇼핑몰 사이트",
+    description:
+      "OOi가 제작한 그린마켓 친환경 식품 쇼핑몰 웹사이트. 쇼핑몰 제작 포트폴리오.",
+  },
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const meta = portfolioMeta[id];
+  if (!meta) return {};
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical: `https://oois.app/portfolio/${id}`,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: "website",
+    },
+  };
+}
 
 /* ── Shared overlays ── */
 function BackButton() {

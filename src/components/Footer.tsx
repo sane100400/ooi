@@ -46,18 +46,22 @@ export default function Footer() {
               회사
             </h4>
             <ul className="space-y-2.5">
-              {["회사 소개", "포트폴리오", "작업 프로세스", "블로그"].map(
-                (item) => (
-                  <li key={item}>
+              {[
+                { label: "회사 소개", href: "/#about" },
+                { label: "포트폴리오", href: "/#portfolio" },
+                { label: "작업 프로세스", href: "/#process" },
+                { label: "블로그", href: "/blog" },
+                { label: "견적 보기", href: "/pricing" },
+              ].map((item) => (
+                  <li key={item.label}>
                     <a
-                      href="#about"
+                      href={item.href}
                       className="text-sm text-slate-400 transition-colors hover:text-emerald-600 dark:text-emerald-200/40 dark:hover:text-emerald-400"
                     >
-                      {item}
+                      {item.label}
                     </a>
                   </li>
-                )
-              )}
+                ))}
             </ul>
           </div>
 

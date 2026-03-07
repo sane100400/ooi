@@ -8,6 +8,7 @@ const navItems = [
   { label: "포트폴리오", href: "#portfolio" },
   { label: "프로세스", href: "#process" },
   { label: "회사 소개", href: "#about" },
+  { label: "블로그", href: "/blog" },
   { label: "문의하기", href: "#contact" },
 ];
 
