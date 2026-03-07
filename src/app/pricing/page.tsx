@@ -629,27 +629,20 @@ export default function PricingPage() {
 
         {/* Note */}
         <div className="mx-auto max-w-3xl rounded-2xl border border-slate-100 bg-slate-50 p-6 dark:border-emerald-800/20 dark:bg-emerald-900/10 sm:p-8">
-          <h3 className="mb-4 flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-            <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-            </svg>
+          <h3 className="mb-4 text-sm font-bold text-slate-700 dark:text-slate-300">
             안내사항
           </h3>
-          <ul className="space-y-3 text-sm leading-relaxed text-slate-500 dark:text-emerald-200/50">
-            <li className="flex gap-2">
-              <span className="mt-0.5 shrink-0 text-slate-300 dark:text-emerald-700">·</span>
-              기본 패키지에 포함된 호스팅은 <strong className="font-medium text-slate-600 dark:text-emerald-200/70">최초 세팅 및 배포</strong>를 의미합니다. 이후 발생하는 월별 서버 운영 비용은 고객님께서 부담해 주시게 됩니다. 합리적인 서버 구성을 함께 안내해 드리니 걱정하지 않으셔도 됩니다.
+          <ul className="list-disc space-y-3 pl-5 text-sm leading-relaxed text-slate-500 dark:text-emerald-200/50">
+            <li>
+              기본 패키지에 포함된 호스팅은 최초 세팅 및 배포를 의미합니다. 이후 발생하는 월별 서버 운영 비용은 고객님께서 부담해 주시게 되며, 합리적인 서버 구성을 함께 안내해 드립니다.
             </li>
-            <li className="flex gap-2">
-              <span className="mt-0.5 shrink-0 text-slate-300 dark:text-emerald-700">·</span>
-              도메인은 종류에 따라 비용이 상이합니다. <strong className="font-medium text-slate-600 dark:text-emerald-200/70">.com, .co.kr</strong> 등 인기 도메인이나 프리미엄 도메인의 경우 별도 비용이 발생할 수 있으며, 도메인 선택 시 상세히 안내드리겠습니다.
+            <li>
+              도메인은 종류에 따라 비용이 상이합니다. .com, .co.kr 등 인기 도메인이나 프리미엄 도메인의 경우 별도 비용이 발생할 수 있으며, 도메인 선택 시 상세히 안내드리겠습니다.
             </li>
-            <li className="flex gap-2">
-              <span className="mt-0.5 shrink-0 text-slate-300 dark:text-emerald-700">·</span>
+            <li>
               모든 가격은 프로젝트 규모에 따라 달라질 수 있습니다. 정확한 견적은 상담 후 안내드립니다.
             </li>
-            <li className="flex gap-2">
-              <span className="mt-0.5 shrink-0 text-slate-300 dark:text-emerald-700">·</span>
+            <li>
               위 가격은 업계 평균의 약 1/4 수준입니다.
             </li>
           </ul>
