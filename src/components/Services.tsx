@@ -12,15 +12,6 @@ const services = [
     title: "홈페이지 제작",
     description:
       "회사 소개, 포트폴리오, 예약 페이지 등 비즈니스에 꼭 필요한 홈페이지를 깔끔하게 만들어 드립니다. 어려운 건 저희가 다 알아서 해드릴게요.",
-    colorFrom: "from-emerald-50",
-    colorTo: "to-teal-50",
-    textColor: "text-emerald-600",
-    hoverFrom: "group-hover:from-emerald-500",
-    hoverTo: "group-hover:to-teal-600",
-    darkFrom: "dark:from-emerald-800/50",
-    darkTo: "dark:to-teal-800/50",
-    borderHover: "hover:border-emerald-200 dark:hover:border-emerald-600",
-    shadowHover: "hover:shadow-emerald-500/10",
   },
   {
     icon: (
@@ -31,15 +22,6 @@ const services = [
     title: "AI 챗봇 개발",
     description:
       "고객 문의 자동 응답, 상담 예약, FAQ 안내까지. 24시간 일하는 AI 챗봇을 홈페이지에 달아드립니다. 인건비 줄이고, 고객 만족은 높이세요.",
-    colorFrom: "from-violet-50",
-    colorTo: "to-violet-100",
-    textColor: "text-violet-600",
-    hoverFrom: "group-hover:from-violet-500",
-    hoverTo: "group-hover:to-violet-600",
-    darkFrom: "dark:from-violet-800/50",
-    darkTo: "dark:to-violet-800/50",
-    borderHover: "hover:border-violet-200 dark:hover:border-violet-600",
-    shadowHover: "hover:shadow-violet-500/10",
   },
   {
     icon: (
@@ -50,15 +32,6 @@ const services = [
     title: "모바일 앱 개발",
     description:
       "안드로이드, iOS 모두 지원하는 앱을 한 번에 만들어 드립니다. 매장 앱, 예약 앱, 커뮤니티 앱 등 원하시는 기능을 쉽게 구현해 드려요.",
-    colorFrom: "from-indigo-50",
-    colorTo: "to-indigo-100",
-    textColor: "text-indigo-600",
-    hoverFrom: "group-hover:from-indigo-500",
-    hoverTo: "group-hover:to-indigo-600",
-    darkFrom: "dark:from-indigo-800/50",
-    darkTo: "dark:to-indigo-800/50",
-    borderHover: "hover:border-indigo-200 dark:hover:border-indigo-600",
-    shadowHover: "hover:shadow-indigo-500/10",
   },
   {
     icon: (
@@ -69,15 +42,6 @@ const services = [
     title: "쇼핑몰 제작",
     description:
       "상품 등록, 결제, 주문 관리까지 한 번에. 스마트스토어 말고 나만의 브랜드 쇼핑몰을 갖고 싶으시다면 맡겨주세요.",
-    colorFrom: "from-blue-50",
-    colorTo: "to-blue-100",
-    textColor: "text-blue-600",
-    hoverFrom: "group-hover:from-blue-500",
-    hoverTo: "group-hover:to-blue-600",
-    darkFrom: "dark:from-blue-800/50",
-    darkTo: "dark:to-blue-800/50",
-    borderHover: "hover:border-blue-200 dark:hover:border-blue-600",
-    shadowHover: "hover:shadow-blue-500/10",
   },
   {
     icon: (
@@ -88,15 +52,6 @@ const services = [
     title: "유지보수 & 관리",
     description:
       "만들고 끝이 아닙니다. 내용 수정, 오류 수정, 서버 관리까지 월 단위로 편하게 맡기세요. 사장님은 본업에만 집중하시면 됩니다.",
-    colorFrom: "from-indigo-50",
-    colorTo: "to-violet-50",
-    textColor: "text-indigo-600",
-    hoverFrom: "group-hover:from-indigo-500",
-    hoverTo: "group-hover:to-violet-600",
-    darkFrom: "dark:from-indigo-800/50",
-    darkTo: "dark:to-violet-800/50",
-    borderHover: "hover:border-indigo-200 dark:hover:border-indigo-600",
-    shadowHover: "hover:shadow-indigo-500/10",
   },
 ];
 
@@ -125,7 +80,7 @@ export default function Services() {
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <span className="mb-4 inline-block rounded-full bg-emerald-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300">
+          <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             Services
           </span>
           <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
@@ -141,10 +96,10 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={service.title}
-              className={`service-card group rounded-2xl border border-slate-100 bg-white p-8 opacity-0 shadow-sm transition-all duration-300 ${service.borderHover} hover:shadow-xl ${service.shadowHover} hover:-translate-y-1 dark:border-emerald-800/30 dark:bg-emerald-900/20`}
+              className="service-card group rounded-2xl border border-slate-100 bg-white p-8 opacity-0 shadow-sm transition-all duration-300 hover:border-emerald-200 hover:shadow-lg hover:shadow-emerald-500/[0.07] hover:-translate-y-1 dark:border-emerald-800/20 dark:bg-emerald-900/10 dark:hover:border-emerald-700/50"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${service.colorFrom} ${service.colorTo} ${service.textColor} transition-colors ${service.hoverFrom} ${service.hoverTo} group-hover:text-white ${service.darkFrom} ${service.darkTo}`}>
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-emerald-600/20 dark:bg-emerald-900/30 dark:text-emerald-400">
                 {service.icon}
               </div>
               <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">

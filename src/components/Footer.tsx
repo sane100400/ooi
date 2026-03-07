@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-white py-12 px-6 dark:border-emerald-800/30 dark:bg-emerald-950/50">
+    <footer className="border-t border-slate-100 bg-white py-12 px-6 dark:border-emerald-800/20 dark:bg-emerald-950/30">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
@@ -12,7 +12,7 @@ export default function Footer() {
                 OO<span className="text-emerald-500">i</span>
               </span>
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-emerald-200/50">
+            <p className="mt-3 text-sm leading-relaxed text-slate-400 dark:text-emerald-200/40">
               비즈니스에 최적화된 웹사이트를
               <br />
               기획부터 개발, 운영까지.
@@ -30,7 +30,7 @@ export default function Footer() {
                   <li key={item}>
                     <a
                       href="#services"
-                      className="text-sm text-slate-500 transition-colors hover:text-emerald-600 dark:text-emerald-200/50 dark:hover:text-emerald-400"
+                      className="text-sm text-slate-400 transition-colors hover:text-emerald-600 dark:text-emerald-200/40 dark:hover:text-emerald-400"
                     >
                       {item}
                     </a>
@@ -51,7 +51,7 @@ export default function Footer() {
                   <li key={item}>
                     <a
                       href="#about"
-                      className="text-sm text-slate-500 transition-colors hover:text-emerald-600 dark:text-emerald-200/50 dark:hover:text-emerald-400"
+                      className="text-sm text-slate-400 transition-colors hover:text-emerald-600 dark:text-emerald-200/40 dark:hover:text-emerald-400"
                     >
                       {item}
                     </a>
@@ -64,11 +64,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-8 dark:border-emerald-800/30 sm:flex-row">
-          <p className="text-sm text-slate-400 dark:text-emerald-200/40">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-8 dark:border-emerald-800/20 sm:flex-row">
+          <p className="text-sm text-slate-400 dark:text-emerald-200/30">
             &copy; {new Date().getFullYear()} OOi. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-slate-400 dark:text-emerald-200/40">
+          <div className="flex gap-6 text-sm text-slate-400 dark:text-emerald-200/30">
             <a href="#" className="transition-colors hover:text-emerald-500">
               개인정보처리방침
             </a>

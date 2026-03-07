@@ -6,7 +6,6 @@ import type { PortfolioItem } from "@/types/portfolio";
 
 const categories = ["전체", "기업 사이트", "쇼핑몰", "랜딩페이지", "웹 앱"];
 
-/* Thumbnail images matching each portfolio mock site */
 const thumbnails: Record<string, { img: string; brand: string }> = {
   "1": {
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=250&fit=crop",
@@ -14,7 +13,7 @@ const thumbnails: Record<string, { img: string; brand: string }> = {
   },
   "2": {
     img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&h=250&fit=crop",
-    brand: "MAISON ÉLITE",
+    brand: "MAISON ELITE",
   },
   "3": {
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=250&fit=crop",
@@ -71,12 +70,12 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="relative bg-slate-50 py-28 px-6 dark:bg-emerald-950/30"
+      className="relative bg-slate-50/70 py-28 px-6 dark:bg-emerald-950/20"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <div className="portfolio-header mb-16 text-center opacity-0">
-          <span className="mb-4 inline-block rounded-full bg-emerald-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300">
+          <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             Portfolio
           </span>
           <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
@@ -95,8 +94,8 @@ export default function Portfolio() {
               onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30"
-                  : "bg-white text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-200 dark:hover:bg-emerald-800/50"
+                  ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
+                  : "bg-white text-slate-500 hover:bg-emerald-50 hover:text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-200/70 dark:hover:bg-emerald-800/30"
               }`}
             >
               {cat}
@@ -110,25 +109,24 @@ export default function Portfolio() {
             <Link
               key={project.id}
               href={`/portfolio/${project.id}`}
-              className="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 dark:border-emerald-800/30 dark:bg-emerald-900/20"
+              className="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/[0.07] hover:-translate-y-1 dark:border-emerald-800/20 dark:bg-emerald-900/10"
             >
-              {/* Project preview area */}
               <div className="relative h-52 overflow-hidden">
                 {thumbnails[project.id] ? (
                   <>
                     <img
                       src={thumbnails[project.id].img}
                       alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
                     <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
                       <span className="text-lg font-bold text-white drop-shadow-lg">
                         {thumbnails[project.id].brand}
                       </span>
                       <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                        사이트 보기 →
+                        사이트 보기
                       </span>
                     </div>
                   </>
@@ -141,7 +139,6 @@ export default function Portfolio() {
                 )}
               </div>
 
-              {/* Project info */}
               <div className="p-6">
                 <span className="mb-2 inline-block text-xs font-medium text-emerald-600 dark:text-emerald-400">
                   {project.category}
@@ -156,7 +153,7 @@ export default function Portfolio() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-800/40 dark:text-emerald-300"
+                      className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-600 dark:bg-emerald-800/30 dark:text-emerald-300"
                     >
                       {tag}
                     </span>
