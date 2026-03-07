@@ -17,9 +17,11 @@ interface FeatureCategory {
   features: Feature[];
 }
 
+const BASE_PRICE = 30;
+
 const featureMenu: FeatureCategory[] = [
   {
-    category: "기본 구성",
+    category: "추가 구성",
     iconColor: "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -27,7 +29,6 @@ const featureMenu: FeatureCategory[] = [
       </svg>
     ),
     features: [
-      { name: "기본 홈페이지 (5페이지 이내)", price: 30 },
       { name: "추가 페이지", price: 3, quantifiable: true, unit: "페이지" },
       { name: "반응형 디자인 (모바일 대응)", price: 10 },
       { name: "도메인 & SSL 세팅", price: 5 },
@@ -155,7 +156,7 @@ export default function PricingPage() {
 
   const allFeatures = featureMenu.flatMap((c) => c.features);
 
-  const totalPrice = Object.entries(selectedFeatures).reduce((sum, [name, qty]) => {
+  const totalPrice = BASE_PRICE + Object.entries(selectedFeatures).reduce((sum, [name, qty]) => {
     const f = allFeatures.find((feat) => feat.name === name);
     return sum + (f ? f.price * qty : 0);
   }, 0);
@@ -170,13 +171,15 @@ export default function PricingPage() {
     e.preventDefault();
     setSubmitting(true);
 
-    const featureSummary = Object.entries(selectedFeatures)
+    const addons = Object.entries(selectedFeatures)
       .map(([name, qty]) => {
         const f = allFeatures.find((feat) => feat.name === name);
         if (f?.quantifiable && qty > 1) return `${name} x${qty}`;
         return name;
       })
       .join(", ");
+
+    const featureSummary = `기본 홈페이지 패키지 (5페이지+호스팅)${addons ? `, ${addons}` : ""}`;
 
     const fullDescription = [
       description,
@@ -272,11 +275,55 @@ export default function PricingPage() {
           </p>
         </div>
 
-        {/* Step 1: Feature selector */}
-        <div className="mb-6">
+        {/* Base package (mandatory) */}
+        <div className="mb-10">
           <div className="mb-6 flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">1</div>
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white">필요한 기능 선택</h2>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">기본 패키지 <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">(필수)</span></h2>
+          </div>
+          <div className="rounded-2xl border-2 border-emerald-400 bg-gradient-to-br from-emerald-50 to-teal-50 p-6 shadow-lg shadow-emerald-100/50 dark:border-emerald-500 dark:from-emerald-950/40 dark:to-teal-950/30 dark:shadow-emerald-900/20 sm:p-8">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">
+                  필수 선택
+                </div>
+                <h3 className="mb-2 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
+                  기본 홈페이지
+                </h3>
+                <p className="mb-4 text-sm text-slate-500 dark:text-emerald-200/60">
+                  모든 프로젝트의 시작점. 호스팅까지 포함된 올인원 패키지.
+                </p>
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {[
+                    "메인 페이지 포함 5페이지 이내",
+                    "웹 호스팅 제공",
+                    "맞춤 디자인",
+                    "소스 코드 제공",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-emerald-200/70">
+                      <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="text-center sm:text-right">
+                <div className="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 sm:text-5xl">
+                  {BASE_PRICE}<span className="text-lg font-bold text-slate-400 dark:text-emerald-200/40">만원</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-400 dark:text-emerald-200/30">기본 포함</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Step 2: Additional features */}
+        <div className="mb-6">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">2</div>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">추가 기능 선택 <span className="text-sm font-normal text-slate-400">(선택)</span></h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
             {featureMenu.map((cat) => (
@@ -367,16 +414,10 @@ export default function PricingPage() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs text-slate-400 dark:text-emerald-200/40">
-                  {selectedCount}개 기능 선택
+                  기본 패키지{selectedCount > 0 ? ` + ${selectedCount}개 추가 기능` : ""}
                 </p>
                 <p className="text-2xl font-extrabold text-slate-900 dark:text-white">
-                  {totalPrice > 0 ? (
-                    <>
-                      {totalPrice}<span className="text-base font-bold text-slate-500 dark:text-emerald-200/50">만원</span>
-                    </>
-                  ) : (
-                    <span className="text-lg text-slate-400">기능을 선택하세요</span>
-                  )}
+                  {totalPrice}<span className="text-base font-bold text-slate-500 dark:text-emerald-200/50">만원</span>
                 </p>
               </div>
               <button
@@ -392,7 +433,7 @@ export default function PricingPage() {
         {/* Maintenance section */}
         <div className="mb-16">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">2</div>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">3</div>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">유지보수 플랜 <span className="text-sm font-normal text-slate-400">(선택)</span></h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -441,31 +482,32 @@ export default function PricingPage() {
         {/* Step 3: Request form */}
         <div ref={formRef} className="mb-16 scroll-mt-8">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">3</div>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">4</div>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">견적 요청 정보 입력</h2>
           </div>
 
           <div className="rounded-2xl border border-slate-100 bg-white p-6 sm:p-8 dark:border-emerald-800/20 dark:bg-emerald-900/10">
             {/* Selected summary */}
-            {selectedCount > 0 && (
-              <div className="mb-6 rounded-xl bg-emerald-50/70 p-4 dark:bg-emerald-900/20">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">선택한 기능</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {Object.entries(selectedFeatures).map(([name, qty]) => {
-                    const f = allFeatures.find((feat) => feat.name === name);
-                    return (
-                      <span key={name} className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-800/40 dark:text-emerald-300">
-                        {name}{f?.quantifiable && qty > 1 ? ` x${qty}` : ""}
-                      </span>
-                    );
-                  })}
-                </div>
-                <p className="mt-3 text-lg font-bold text-emerald-700 dark:text-emerald-300">
-                  예상 견적: {totalPrice}만원
-                  {maintenancePlan && <span className="text-sm font-normal text-emerald-600/70 dark:text-emerald-400/70"> + 유지보수 {maintenancePlan}</span>}
-                </p>
+            <div className="mb-6 rounded-xl bg-emerald-50/70 p-4 dark:bg-emerald-900/20">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">선택 요약</p>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="rounded-full bg-emerald-200 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-700/40 dark:text-emerald-200">
+                  기본 패키지 (5페이지+호스팅)
+                </span>
+                {Object.entries(selectedFeatures).map(([name, qty]) => {
+                  const f = allFeatures.find((feat) => feat.name === name);
+                  return (
+                    <span key={name} className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-800/40 dark:text-emerald-300">
+                      {name}{f?.quantifiable && qty > 1 ? ` x${qty}` : ""}
+                    </span>
+                  );
+                })}
               </div>
-            )}
+              <p className="mt-3 text-lg font-bold text-emerald-700 dark:text-emerald-300">
+                예상 견적: {totalPrice}만원
+                {maintenancePlan && <span className="text-sm font-normal text-emerald-600/70 dark:text-emerald-400/70"> + 유지보수 {maintenancePlan}</span>}
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Contact info */}
@@ -578,7 +620,7 @@ export default function PricingPage() {
                     신청 중...
                   </span>
                 ) : (
-                  <>견적 신청하기{totalPrice > 0 ? ` (예상 ${totalPrice}만원)` : ""}</>
+                  <>견적 신청하기 (예상 {totalPrice}만원)</>
                 )}
               </button>
             </form>
