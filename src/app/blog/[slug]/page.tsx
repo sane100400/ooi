@@ -16,11 +16,11 @@ function PriceCard({
   accent: string;
 }) {
   return (
-    <div className={`rounded-2xl border p-6 ${accent}`}>
-      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+    <div className={`rounded-2xl border p-4 sm:p-6 ${accent}`}>
+      <h3 className="text-base font-bold text-slate-900 dark:text-white sm:text-lg">
         {title}
       </h3>
-      <p className="mt-1 text-2xl font-extrabold text-slate-900 dark:text-white">
+      <p className="mt-1 text-xl font-extrabold text-slate-900 dark:text-white sm:text-2xl">
         {price}
       </p>
       <ul className="mt-4 space-y-2">
@@ -100,15 +100,15 @@ function NumberStep({
   children: React.ReactNode;
 }) {
   return (
-    <div className="my-8 flex gap-5">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-lg font-extrabold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
+    <div className="my-6 flex gap-3 sm:my-8 sm:gap-5">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-sm font-extrabold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 sm:h-10 sm:w-10 sm:rounded-xl sm:text-lg">
         {num}
       </div>
       <div className="flex-1">
-        <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
+        <h3 className="mb-1 text-base font-bold text-slate-900 dark:text-white sm:mb-2 sm:text-lg">
           {title}
         </h3>
-        <div className="text-[15px] leading-relaxed text-slate-600 dark:text-slate-300">
+        <div className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[15px]">
           {children}
         </div>
       </div>
@@ -701,10 +701,10 @@ export default async function BlogPostPage({
           >
             OO<span className="text-emerald-500">i</span>
           </Link>
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-3 sm:gap-6">
             <Link
               href="/"
-              className="text-sm text-slate-500 hover:text-emerald-600 dark:text-slate-400"
+              className="hidden text-sm text-slate-500 hover:text-emerald-600 dark:text-slate-400 sm:block"
             >
               홈
             </Link>
@@ -730,7 +730,7 @@ export default async function BlogPostPage({
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent)]" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 sm:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-10 sm:py-20">
           <div className="mb-4 flex items-center gap-3 text-sm text-white/70">
             <Link href="/blog" className="hover:text-white transition-colors">
               블로그
@@ -738,10 +738,10 @@ export default async function BlogPostPage({
             <span>/</span>
             <span className="text-white/50">글</span>
           </div>
-          <h1 className="mb-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h1 className="mb-4 text-2xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-white/70">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-white/70 sm:gap-4 sm:text-sm">
             <div className="flex items-center gap-2">
               <div className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold text-white">
                 OOi
@@ -757,7 +757,7 @@ export default async function BlogPostPage({
       </div>
 
       {/* Content */}
-      <article className="mx-auto max-w-3xl px-6 py-12">
+      <article className="mx-auto max-w-3xl px-5 py-8 sm:px-6 sm:py-12">
         <div className="mb-6 flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <span
@@ -773,7 +773,7 @@ export default async function BlogPostPage({
       </article>
 
       {/* Related Posts */}
-      <section className="border-t border-slate-200 bg-white px-6 py-16 dark:border-slate-800 dark:bg-slate-900">
+      <section className="border-t border-slate-200 bg-white px-6 py-10 dark:border-slate-800 dark:bg-slate-900 sm:py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-xl font-bold text-slate-900 dark:text-white">
             다른 글도 읽어보세요
@@ -802,8 +802,8 @@ export default async function BlogPostPage({
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-700" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent)]" />
-        <div className="relative mx-auto max-w-4xl px-6 py-20 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
+        <div className="relative mx-auto max-w-4xl px-6 py-14 text-center sm:py-20">
+          <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
             웹사이트 제작, OOi에 맡겨보세요
           </h2>
           <p className="mb-8 text-emerald-100/80">

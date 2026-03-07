@@ -87,29 +87,29 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-50 via-transparent to-transparent dark:from-emerald-950/30" />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <div className="relative mx-auto max-w-6xl px-6 py-14 sm:py-24">
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 mb-6">
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
             OOi 블로그
           </div>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
             웹사이트 제작,
             <br />
             <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
               제대로 알고 시작하세요
             </span>
           </h1>
-          <p className="max-w-lg text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+          <p className="max-w-lg text-base leading-relaxed text-slate-500 dark:text-slate-400 sm:text-lg">
             비용, 기능, 전략까지. 웹사이트 외주 전에 꼭 알아야 할 실전 가이드.
           </p>
         </div>
       </section>
 
       {/* Posts */}
-      <main className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="mx-auto max-w-6xl px-6 py-10 sm:py-16">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {posts.map((post) => (
             <Link
               key={post.slug}
