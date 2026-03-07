@@ -18,8 +18,8 @@ export default function Hero() {
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-emerald-400/15 to-teal-500/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-emerald-500/10 to-teal-400/5 blur-3xl" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-emerald-500/[0.03] blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-amber-400/8 to-emerald-400/5 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-sky-400/[0.03] blur-3xl" />
       </div>
 
       {/* Subtle dot pattern */}
@@ -32,7 +32,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-5xl text-center">
-        {/* Badge */}
+        {/* Badges */}
         <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/60 bg-emerald-50/80 px-4 py-2 backdrop-blur-sm dark:border-emerald-700/50 dark:bg-emerald-900/30">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -40,11 +40,11 @@ export default function Hero() {
               웹사이트 외주 전문 파트너
             </span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-teal-200/60 bg-teal-50/80 px-4 py-2 backdrop-blur-sm dark:border-teal-700/50 dark:bg-teal-900/30">
-            <svg className="h-3.5 w-3.5 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/60 bg-amber-50/80 px-4 py-2 backdrop-blur-sm dark:border-amber-600/30 dark:bg-amber-900/20">
+            <svg className="h-3.5 w-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span className="text-sm font-bold text-teal-700 dark:text-teal-300">
+            <span className="text-sm font-bold text-amber-700 dark:text-amber-400">
               최단 당일 완성 · 최장 7일
             </span>
           </div>
@@ -95,12 +95,12 @@ export default function Hero() {
         {/* Stats */}
         <div className="mt-20 grid grid-cols-3 gap-8">
           {[
-            { value: "당일", label: "최단 납기" },
-            { value: "10+", label: "완료 프로젝트" },
-            { value: "98%", label: "고객 만족도" },
+            { value: "당일", label: "최단 납기", color: "text-amber-500" },
+            { value: "10+", label: "완료 프로젝트", color: "text-emerald-600 dark:text-emerald-400" },
+            { value: "98%", label: "고객 만족도", color: "text-sky-500" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 sm:text-4xl">
+              <div className={`text-3xl font-bold sm:text-4xl ${stat.color}`}>
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-slate-400 dark:text-emerald-300/50">

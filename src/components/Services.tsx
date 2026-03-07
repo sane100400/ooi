@@ -6,12 +6,15 @@ const services = [
   {
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" />
       </svg>
     ),
     title: "홈페이지 제작",
     description:
       "회사 소개, 포트폴리오, 예약 페이지 등 비즈니스에 꼭 필요한 홈페이지를 깔끔하게 만들어 드립니다. 어려운 건 저희가 다 알아서 해드릴게요.",
+    iconBg: "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400",
+    hoverIconBg: "group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-emerald-600/20",
+    borderHover: "hover:border-emerald-200",
   },
   {
     icon: (
@@ -22,6 +25,9 @@ const services = [
     title: "AI 챗봇 개발",
     description:
       "고객 문의 자동 응답, 상담 예약, FAQ 안내까지. 24시간 일하는 AI 챗봇을 홈페이지에 달아드립니다. 인건비 줄이고, 고객 만족은 높이세요.",
+    iconBg: "bg-sky-50 text-sky-600 dark:bg-sky-900/20 dark:text-sky-400",
+    hoverIconBg: "group-hover:bg-sky-600 group-hover:text-white group-hover:shadow-sky-600/20",
+    borderHover: "hover:border-sky-200",
   },
   {
     icon: (
@@ -32,6 +38,9 @@ const services = [
     title: "모바일 앱 개발",
     description:
       "안드로이드, iOS 모두 지원하는 앱을 한 번에 만들어 드립니다. 매장 앱, 예약 앱, 커뮤니티 앱 등 원하시는 기능을 쉽게 구현해 드려요.",
+    iconBg: "bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400",
+    hoverIconBg: "group-hover:bg-teal-600 group-hover:text-white group-hover:shadow-teal-600/20",
+    borderHover: "hover:border-teal-200",
   },
   {
     icon: (
@@ -42,16 +51,22 @@ const services = [
     title: "쇼핑몰 제작",
     description:
       "상품 등록, 결제, 주문 관리까지 한 번에. 스마트스토어 말고 나만의 브랜드 쇼핑몰을 갖고 싶으시다면 맡겨주세요.",
+    iconBg: "bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400",
+    hoverIconBg: "group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20",
+    borderHover: "hover:border-amber-200",
   },
   {
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1 3.04.97-5.69L3.2 8.6l5.7-.83L11.42 3l2.52 4.77 5.7.83-4.09 3.92.97 5.69-5.1-3.04z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
     title: "유지보수 & 관리",
     description:
       "만들고 끝이 아닙니다. 내용 수정, 오류 수정, 서버 관리까지 월 단위로 편하게 맡기세요. 사장님은 본업에만 집중하시면 됩니다.",
+    iconBg: "bg-slate-100 text-slate-600 dark:bg-slate-800/30 dark:text-slate-400",
+    hoverIconBg: "group-hover:bg-slate-700 group-hover:text-white group-hover:shadow-slate-700/20",
+    borderHover: "hover:border-slate-300",
   },
 ];
 
@@ -96,10 +111,10 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={service.title}
-              className="service-card group rounded-2xl border border-slate-100 bg-white p-8 opacity-0 shadow-sm transition-all duration-300 hover:border-emerald-200 hover:shadow-lg hover:shadow-emerald-500/[0.07] hover:-translate-y-1 dark:border-emerald-800/20 dark:bg-emerald-900/10 dark:hover:border-emerald-700/50"
+              className={`service-card group rounded-2xl border border-slate-100 bg-white p-8 opacity-0 shadow-sm transition-all duration-300 ${service.borderHover} hover:shadow-lg hover:-translate-y-1 dark:border-emerald-800/20 dark:bg-emerald-900/10 dark:hover:border-emerald-700/50`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-all group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-emerald-600/20 dark:bg-emerald-900/30 dark:text-emerald-400">
+              <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${service.iconBg} transition-all ${service.hoverIconBg} group-hover:shadow-md`}>
                 {service.icon}
               </div>
               <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">
