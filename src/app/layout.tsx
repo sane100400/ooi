@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "홈페이지 제작 30만원부터 | OOi 웹사이트 외주",
     description:
-      "업계 평균 1/4 가격. 기획부터 디자인, 개발, 호스팅까지 올인원. 최단 당일 완성, 고려대 보안전공 개발팀이 직접 만듭니다.",
+      "업계 평균 1/4 가격. 기획부터 디자인, 개발, 호스팅까지 올인원. 최단 당일 완성, 보안전공 개발팀이 직접 만듭니다.",
     url: "https://oois.app",
     siteName: "OOi",
     type: "website",

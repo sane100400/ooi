@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "홈페이지 제작 30만원부터 | OOi 웹사이트 외주 전문",
   description:
-    "업계 평균 1/4 가격으로 고퀄리티 웹사이트 제작. 기획, 디자인, 개발, 호스팅까지 올인원. 최단 당일 완성. 고려대 보안전공 개발팀이 직접 만듭니다.",
+    "업계 평균 1/4 가격으로 고퀄리티 웹사이트 제작. 기획, 디자인, 개발, 호스팅까지 올인원. 최단 당일 완성. 보안전공 개발팀이 직접 만듭니다.",
   alternates: {
     canonical: "https://oois.app",
   },
