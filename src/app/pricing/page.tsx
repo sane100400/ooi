@@ -402,14 +402,14 @@ export default function PricingPage() {
                 <button
                   key={plan.name}
                   onClick={() => setMaintenancePlan(isSelected ? "" : plan.name)}
-                  className={`relative rounded-2xl border p-6 text-left transition-all hover:shadow-md ${
+                  className={`relative rounded-2xl border-2 p-6 text-left transition-all hover:shadow-md ${
                     isSelected
-                      ? "border-emerald-300 bg-emerald-50/50 shadow-sm dark:border-emerald-600 dark:bg-emerald-900/20"
-                      : "border-slate-100 bg-white dark:border-emerald-800/20 dark:bg-emerald-900/10"
+                      ? "border-emerald-400 bg-emerald-50/60 shadow-md shadow-emerald-500/10 dark:border-emerald-500 dark:bg-emerald-900/20"
+                      : "border-slate-200 bg-white hover:border-slate-300 dark:border-slate-700 dark:bg-emerald-900/10 dark:hover:border-slate-600"
                   }`}
                 >
                   {plan.recommended && (
-                    <span className="absolute -top-2.5 right-4 rounded-full bg-emerald-600 px-3 py-0.5 text-xs font-semibold text-white">
+                    <span className="absolute -top-3 right-4 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white shadow-sm shadow-amber-500/30">
                       추천
                     </span>
                   )}

@@ -8,7 +8,6 @@ const navItems = [
   { label: "포트폴리오", href: "#portfolio" },
   { label: "프로세스", href: "#process" },
   { label: "회사 소개", href: "#about" },
-  { label: "견적 보기", href: "/pricing" },
   { label: "문의하기", href: "#contact" },
 ];
 
@@ -47,6 +46,12 @@ export default function Header() {
               {item.label}
             </a>
           ))}
+          <a
+            href="/pricing"
+            className="rounded-full border border-amber-300 bg-amber-50 px-5 py-2.5 text-sm font-bold text-amber-700 transition-all hover:bg-amber-100 hover:scale-105 dark:border-amber-600/50 dark:bg-amber-900/20 dark:text-amber-400"
+          >
+            견적 보기
+          </a>
           <a
             href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
             target="_blank"
@@ -88,11 +93,18 @@ export default function Header() {
               </a>
             ))}
             <a
+              href="/pricing"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 rounded-full border border-amber-300 bg-amber-50 px-6 py-3 text-center text-sm font-bold text-amber-700 dark:border-amber-600/50 dark:bg-amber-900/20 dark:text-amber-400"
+            >
+              견적 보기
+            </a>
+            <a
               href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-full bg-emerald-600 px-6 py-3 text-center text-sm font-semibold text-white"
+              className="rounded-full bg-emerald-600 px-6 py-3 text-center text-sm font-semibold text-white"
             >
               프로젝트 의뢰
             </a>
