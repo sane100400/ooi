@@ -54,9 +54,7 @@ export default function Header() {
             견적 보기
           </a>
           <a
-            href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-600/20 transition-all hover:bg-emerald-700 hover:shadow-emerald-600/30 hover:scale-105"
           >
             프로젝트 의뢰
@@ -101,9 +99,7 @@ export default function Header() {
               견적 보기
             </a>
             <a
-              href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               onClick={() => setMobileOpen(false)}
               className="rounded-full bg-emerald-600 px-6 py-3 text-center text-sm font-semibold text-white"
             >

@@ -68,9 +68,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="group relative inline-flex items-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-emerald-600/25 transition-all hover:bg-emerald-700 hover:shadow-emerald-600/35 hover:scale-105"
           >
             무료 상담 신청

@@ -21,8 +21,6 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const soomgoUrl = process.env.NEXT_PUBLIC_SOOMGO_URL || "#";
-
   return (
     <section id="contact" ref={sectionRef} className="relative py-16 px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
@@ -41,17 +39,15 @@ export default function Contact() {
                 시작해 볼까요?
               </h2>
               <p className="mb-8 max-w-xl text-lg leading-relaxed text-emerald-100/70">
-                아이디어만 있어도 괜찮습니다. 숨고에서 간편하게 상담을 신청하시면,
+                아이디어만 있어도 괜찮습니다. 간편하게 상담을 신청하시면,
                 기획 단계부터 함께 고민하고 최적의 솔루션을 찾아드립니다.
               </p>
 
               <a
-                href={soomgoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/pricing"
                 className="group inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-4 text-base font-bold text-emerald-700 shadow-lg transition-all hover:bg-emerald-50 hover:shadow-xl hover:scale-[1.02] sm:px-10 sm:py-5 sm:text-lg"
               >
-                숨고에서 무료 상담 신청하기
+                무료 상담 신청하기
                 <svg
                   className="h-5 w-5 transition-transform group-hover:translate-x-1"
                   fill="none"

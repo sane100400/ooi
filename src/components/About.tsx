@@ -150,9 +150,7 @@ export default function About() {
         {/* CTA */}
         <div className="about-item mt-12 text-center opacity-0">
           <a
-            href={process.env.NEXT_PUBLIC_SOOMGO_URL || "#contact"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="inline-flex rounded-full bg-emerald-600 px-8 py-3.5 text-sm font-semibold text-white shadow-md shadow-emerald-600/20 transition-all hover:bg-emerald-700 hover:shadow-emerald-600/30 hover:scale-105"
           >
             함께 시작하기

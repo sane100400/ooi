@@ -21,8 +21,6 @@ export default function DeliveryBanner() {
     return () => observer.disconnect();
   }, []);
 
-  const soomgoUrl = process.env.NEXT_PUBLIC_SOOMGO_URL || "#";
-
   return (
     <section ref={bannerRef} className="relative py-12 px-6 opacity-0 sm:py-20">
       <div className="mx-auto max-w-5xl">
@@ -54,9 +52,7 @@ export default function DeliveryBanner() {
 
             {/* CTA */}
             <a
-              href={soomgoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="shrink-0 rounded-full bg-emerald-500 px-8 py-4 text-base font-bold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-600 hover:shadow-xl hover:scale-105"
             >
               지금 시작하기
