@@ -24,10 +24,10 @@ export default function Contact() {
   const soomgoUrl = process.env.NEXT_PUBLIC_SOOMGO_URL || "#";
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-28 px-6">
+    <section id="contact" ref={sectionRef} className="relative py-16 px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="contact-inner opacity-0">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 p-12 shadow-xl shadow-emerald-600/15 sm:p-16">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 p-8 shadow-xl shadow-emerald-600/15 sm:p-16">
             {/* Background decoration */}
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-white/[0.06] blur-2xl" />
@@ -35,7 +35,7 @@ export default function Contact() {
             </div>
 
             <div className="relative z-10 flex flex-col items-center text-center">
-              <h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+              <h2 className="mb-4 text-3xl font-bold text-white sm:text-5xl">
                 프로젝트를
                 <br />
                 시작해 볼까요?
@@ -49,7 +49,7 @@ export default function Contact() {
                 href={soomgoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-2xl bg-white px-10 py-5 text-lg font-bold text-emerald-700 shadow-lg transition-all hover:bg-emerald-50 hover:shadow-xl hover:scale-[1.02]"
+                className="group inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-4 text-base font-bold text-emerald-700 shadow-lg transition-all hover:bg-emerald-50 hover:shadow-xl hover:scale-[1.02] sm:px-10 sm:py-5 sm:text-lg"
               >
                 숨고에서 무료 상담 신청하기
                 <svg

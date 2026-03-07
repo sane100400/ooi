@@ -88,7 +88,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative bg-slate-50/70 py-28 px-6 dark:bg-emerald-950/20"
+      className="relative bg-slate-50/70 py-16 px-6 dark:bg-emerald-950/20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
@@ -96,7 +96,7 @@ export default function About() {
           <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             About Us
           </span>
-          <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-5xl">
             <span className="gradient-text">OOi</span>는 이런 팀입니다
           </h2>
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-500 dark:text-emerald-200/60">
@@ -127,11 +127,11 @@ export default function About() {
         </div>
 
         {/* Strengths grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {strengths.map((item, i) => (
             <div
               key={item.title}
-              className="about-item rounded-2xl border border-slate-100 bg-white p-6 opacity-0 shadow-sm transition-all hover:shadow-md dark:border-emerald-800/20 dark:bg-emerald-900/10"
+              className="about-item rounded-2xl border border-slate-100 bg-white p-4 opacity-0 shadow-sm transition-all hover:shadow-md dark:border-emerald-800/20 dark:bg-emerald-900/10 sm:p-6"
               style={{ animationDelay: `${i * 100 + 200}ms` }}
             >
               <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${item.iconBg} text-white shadow-md ${item.shadow}`}>

@@ -24,9 +24,9 @@ export default function DeliveryBanner() {
   const soomgoUrl = process.env.NEXT_PUBLIC_SOOMGO_URL || "#";
 
   return (
-    <section ref={bannerRef} className="relative py-20 px-6 opacity-0">
+    <section ref={bannerRef} className="relative py-12 px-6 opacity-0 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 p-10 shadow-xl sm:p-14">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 p-6 shadow-xl sm:p-14">
           {/* Background decoration */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -right-10 -top-10 h-60 w-60 rounded-full bg-emerald-500/15 blur-2xl" />
@@ -43,7 +43,7 @@ export default function DeliveryBanner() {
 
             {/* Text */}
             <div className="flex-1">
-              <h3 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl">
+              <h3 className="mb-2 text-2xl font-extrabold text-white sm:text-4xl">
                 최단 당일, 최장 7일
               </h3>
               <p className="text-base leading-relaxed text-slate-300 sm:text-lg">

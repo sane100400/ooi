@@ -91,14 +91,14 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="relative py-28 px-6">
+    <section id="services" ref={sectionRef} className="relative py-16 px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
-        <div className="mb-16 text-center">
+        <div className="mb-10 text-center sm:mb-16">
           <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             Services
           </span>
-          <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-5xl">
             제공 <span className="gradient-text">서비스</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-500 dark:text-emerald-200/60">

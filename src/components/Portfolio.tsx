@@ -70,15 +70,15 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="relative bg-slate-50/70 py-28 px-6 dark:bg-emerald-950/20"
+      className="relative bg-slate-50/70 py-16 px-6 dark:bg-emerald-950/20 sm:py-28"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
-        <div className="portfolio-header mb-16 text-center opacity-0">
+        <div className="portfolio-header mb-10 text-center opacity-0 sm:mb-16">
           <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             Portfolio
           </span>
-          <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-5xl">
             프로젝트 <span className="gradient-text">포트폴리오</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-500 dark:text-emerald-200/60">
@@ -87,12 +87,12 @@ export default function Portfolio() {
         </div>
 
         {/* Category filter */}
-        <div className="mb-12 flex flex-wrap justify-center gap-2">
+        <div className="mb-12 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
+              className={`shrink-0 rounded-full px-5 py-2 text-sm font-medium transition-all ${
                 activeCategory === cat
                   ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
                   : "bg-white text-slate-500 hover:bg-emerald-50 hover:text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-200/70 dark:hover:bg-emerald-800/30"

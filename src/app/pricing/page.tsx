@@ -265,10 +265,10 @@ export default function PricingPage() {
               업계 평균 대비 75% 절감
             </span>
           </div>
-          <h1 className="mb-4 text-4xl font-extrabold text-slate-900 dark:text-white sm:text-5xl">
+          <h1 className="mb-4 text-3xl font-extrabold text-slate-900 dark:text-white sm:text-5xl">
             기능별 <span className="gradient-text">맞춤 견적</span>
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-slate-500 dark:text-emerald-200/60">
+          <p className="mx-auto max-w-2xl text-base text-slate-500 dark:text-emerald-200/60 sm:text-lg">
             필요한 기능만 골라서 합리적인 가격에.
             <br className="hidden sm:block" />
             고려대 보안 전공 개발팀이 직접 만들어서 가능한 가격입니다.

@@ -95,14 +95,14 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" ref={sectionRef} className="relative py-28 px-6">
+    <section id="process" ref={sectionRef} className="relative py-16 px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         {/* Section header */}
         <div className="mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-emerald-200/60 bg-emerald-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:border-emerald-700/50 dark:bg-emerald-900/30 dark:text-emerald-400">
             Process
           </span>
-          <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-5xl">
             작업 <span className="gradient-text">프로세스</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-500 dark:text-emerald-200/60">
@@ -127,11 +127,11 @@ export default function Process() {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="process-step flex items-start gap-6 opacity-0 md:gap-8"
+                className="process-step flex items-start gap-4 opacity-0 sm:gap-6 md:gap-8"
                 style={{ animationDelay: `${i * 150}ms` }}
               >
                 {/* Number circle */}
-                <div className={`relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${step.gradient} text-white shadow-md ${step.shadow}`}>
+                <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br sm:h-16 sm:w-16 sm:rounded-2xl ${step.gradient} text-white shadow-md ${step.shadow}`}>
                   {step.icon}
                 </div>
 

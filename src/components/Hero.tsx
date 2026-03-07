@@ -51,14 +51,14 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+        <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-7xl">
           당신의 비즈니스를
           <br />
           <span className="gradient-text">디지털로 완성</span>합니다
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-500 dark:text-emerald-200/60 sm:text-xl">
+        <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-slate-500 dark:text-emerald-200/60 sm:mb-10 sm:text-xl">
           기획부터 디자인, 개발, 운영까지.
           <br className="hidden sm:block" />
           OOi는 비즈니스에 최적화된 <strong className="text-emerald-600 dark:text-emerald-400">맞춤형 웹 솔루션</strong>을
@@ -93,14 +93,14 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 grid grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-3 gap-4 sm:mt-20 sm:gap-8">
           {[
             { value: "당일", label: "최단 납기", color: "text-amber-500" },
             { value: "10+", label: "완료 프로젝트", color: "text-emerald-600 dark:text-emerald-400" },
             { value: "98%", label: "고객 만족도", color: "text-sky-500" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className={`text-3xl font-bold sm:text-4xl ${stat.color}`}>
+              <div className={`text-2xl font-bold sm:text-4xl ${stat.color}`}>
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-slate-400 dark:text-emerald-300/50">
