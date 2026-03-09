@@ -28,6 +28,9 @@ const SHOP_BUNDLE = [
   "회원가입 / 로그인",
 ];
 
+const SHOP_ADMIN = "관리자 페이지 (결제 시스템 선택 시 필수)";
+const SHOP_ADMIN_DEPS = ["주문 및 결제 시스템", "장바구니", "리뷰 시스템", "쿠폰 / 할인 시스템", "배송 관리"];
+
 const featureMenu: FeatureCategory[] = [
   {
     category: "추가 구성",
@@ -70,7 +73,10 @@ const featureMenu: FeatureCategory[] = [
     features: [
       { name: "회원가입 / 로그인", price: 10 },
       { name: "소셜 로그인 풀패키지 (구글+카카오+네이버+X)", price: 15 },
-      { name: "소셜 로그인 단일 (구글/카카오/네이버/X)", price: 5 },
+      { name: "소셜 로그인 (구글)", price: 5 },
+      { name: "소셜 로그인 (카카오)", price: 5 },
+      { name: "소셜 로그인 (네이버)", price: 5 },
+      { name: "소셜 로그인 (X)", price: 5 },
       { name: "소셜 로그인 고급 (페이스북/인스타그램)", price: 10 },
       { name: "회원 개인 페이지", price: 5 },
       { name: "관리자 페이지 (회원·게시글 관리)", price: 5 },
@@ -130,12 +136,26 @@ export default function PricingPage() {
   const formRef = useRef<HTMLDivElement>(null);
 
   const toggleFeature = (featureName: string, quantifiable?: boolean) => {
+    // Prevent manually deselecting admin if any dependent features are still selected
+    if (featureName === SHOP_ADMIN) {
+      const hasDeps = SHOP_ADMIN_DEPS.some((d) => d in selectedFeatures);
+      if (hasDeps) return;
+    }
     setSelectedFeatures((prev) => {
       const next = { ...prev };
       if (featureName in next) {
         delete next[featureName];
+        // Auto-deselect admin if no more deps remain
+        if (SHOP_ADMIN_DEPS.includes(featureName)) {
+          const remaining = SHOP_ADMIN_DEPS.filter((d) => d !== featureName && d in next);
+          if (remaining.length === 0) delete next[SHOP_ADMIN];
+        }
       } else {
-        next[featureName] = quantifiable ? 1 : 1;
+        next[featureName] = 1;
+        // Auto-select admin when any dep is selected
+        if (SHOP_ADMIN_DEPS.includes(featureName)) {
+          next[SHOP_ADMIN] = 1;
+        }
       }
       return next;
     });
@@ -332,65 +352,6 @@ export default function PricingPage() {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">추가 기능 선택 <span className="text-sm font-normal text-slate-400">(선택)</span></h2>
           </div>
 
-          {/* Shop bundle preset */}
-          <div className={`mb-6 rounded-2xl border-2 p-5 transition-all sm:p-6 ${
-            isShopBundleActive
-              ? "border-amber-400 bg-amber-50/60 dark:border-amber-500/70 dark:bg-amber-900/15"
-              : "border-amber-200/70 bg-amber-50/40 dark:border-amber-700/40 dark:bg-amber-900/10"
-          }`}>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72M6.75 18h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .414.336.75.75.75z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="mb-1 flex items-center gap-2">
-                    <span className="text-base font-bold text-slate-900 dark:text-white">쇼핑몰 필수 세트</span>
-                    <span className="rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-bold text-white">추천</span>
-                  </div>
-                  <p className="mb-2 text-sm text-slate-500 dark:text-amber-200/60">
-                    온라인 쇼핑몰 구축 시 반드시 필요한 핵심 기능 4가지를 한 번에 선택합니다.
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {SHOP_BUNDLE.map((name) => {
-                      const f = allFeatures.find((feat) => feat.name === name);
-                      return (
-                        <span key={name} className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
-                          name in selectedFeatures
-                            ? "bg-amber-200 text-amber-800 dark:bg-amber-700/50 dark:text-amber-200"
-                            : "bg-white text-slate-500 dark:bg-slate-800/50 dark:text-slate-400"
-                        }`}>
-                          {name} {f ? `(${f.price}만원)` : ""}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="flex shrink-0 flex-col items-end gap-2">
-                <p className="text-right text-xs text-slate-400 dark:text-amber-200/40">
-                  4개 기능 합산
-                </p>
-                <p className="text-2xl font-extrabold text-amber-600 dark:text-amber-400">
-                  {allFeatures.filter((f) => SHOP_BUNDLE.includes(f.name)).reduce((s, f) => s + f.price, 0)}
-                  <span className="text-sm font-bold text-slate-400 dark:text-amber-200/40">만원</span>
-                </p>
-                <button
-                  onClick={toggleShopBundle}
-                  className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all hover:scale-105 ${
-                    isShopBundleActive
-                      ? "bg-slate-200 text-slate-600 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
-                      : "bg-amber-500 text-white shadow-md shadow-amber-500/25 hover:bg-amber-600"
-                  }`}
-                >
-                  {isShopBundleActive ? "선택 해제" : "한 번에 선택하기"}
-                </button>
-              </div>
-            </div>
-          </div>
-
           <div className="grid gap-6 lg:grid-cols-2">
             {featureMenu.map((cat) => (
               <div
@@ -405,10 +366,58 @@ export default function PricingPage() {
                     {cat.category}
                   </h3>
                 </div>
+
+                {/* Shop bundle preset — inside 쇼핑몰 & 결제 card */}
+                {cat.category === "쇼핑몰 & 결제" && (
+                  <div className={`mb-4 rounded-xl border-2 p-4 transition-all ${
+                    isShopBundleActive
+                      ? "border-amber-400 bg-amber-50/60 dark:border-amber-500/70 dark:bg-amber-900/15"
+                      : "border-amber-200/70 bg-amber-50/40 dark:border-amber-700/40 dark:bg-amber-900/10"
+                  }`}>
+                    <div className="mb-3 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-slate-900 dark:text-white">쇼핑몰 필수 세트</span>
+                        <span className="rounded-full bg-amber-500 px-2 py-0.5 text-xs font-bold text-white">추천</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-base font-extrabold text-amber-600 dark:text-amber-400">
+                          {allFeatures.filter((f) => SHOP_BUNDLE.includes(f.name)).reduce((s, f) => s + f.price, 0)}
+                          <span className="text-xs font-bold text-slate-400">만원</span>
+                        </span>
+                        <button
+                          onClick={toggleShopBundle}
+                          className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all hover:scale-105 ${
+                            isShopBundleActive
+                              ? "bg-slate-200 text-slate-600 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-300"
+                              : "bg-amber-500 text-white shadow-sm shadow-amber-500/25 hover:bg-amber-600"
+                          }`}
+                        >
+                          {isShopBundleActive ? "선택 해제" : "한 번에 선택"}
+                        </button>
+                      </div>
+                    </div>
+                    <p className="mb-2 text-xs text-slate-500 dark:text-amber-200/60">
+                      쇼핑몰 구축 시 반드시 필요한 핵심 기능을 한 번에 선택합니다.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {SHOP_BUNDLE.map((name) => (
+                        <span key={name} className={`rounded-full px-2 py-0.5 text-xs font-medium transition-colors ${
+                          name in selectedFeatures
+                            ? "bg-amber-200 text-amber-800 dark:bg-amber-700/50 dark:text-amber-200"
+                            : "bg-white/80 text-slate-400 dark:bg-slate-800/50 dark:text-slate-500"
+                        }`}>
+                          {name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="space-y-2">
                   {cat.features.map((f) => {
                     const selected = f.name in selectedFeatures;
                     const qty = selectedFeatures[f.name] || 1;
+                    const isAutoSelected = f.name === SHOP_ADMIN && SHOP_ADMIN_DEPS.some((d) => d in selectedFeatures);
                     return (
                       <div key={f.name} className="flex items-center gap-2">
                         <button
@@ -417,7 +426,7 @@ export default function PricingPage() {
                             selected
                               ? "bg-emerald-50 border border-emerald-200 dark:bg-emerald-800/20 dark:border-emerald-700/50"
                               : "bg-slate-50 border border-transparent hover:bg-slate-100 dark:bg-emerald-900/5 dark:hover:bg-emerald-900/15"
-                          }`}
+                          } ${isAutoSelected ? "cursor-default" : ""}`}
                         >
                           <div className="flex items-center gap-3">
                             <div
@@ -436,6 +445,11 @@ export default function PricingPage() {
                             <span className={`text-sm font-medium ${selected ? "text-slate-800 dark:text-emerald-200" : "text-slate-600 dark:text-emerald-200/60"}`}>
                               {f.quantifiable ? `${f.name} (1${f.unit}당)` : f.name}
                             </span>
+                            {isAutoSelected && (
+                              <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-800/40 dark:text-emerald-300">
+                                자동 선택
+                              </span>
+                            )}
                           </div>
                           <span className={`text-sm font-bold whitespace-nowrap ${
                             f.discount
