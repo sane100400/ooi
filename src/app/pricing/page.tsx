@@ -8,6 +8,8 @@ interface Feature {
   price: number;
   quantifiable?: boolean;
   unit?: string;
+  consultation?: boolean;
+  discount?: boolean;
 }
 
 interface FeatureCategory {
@@ -19,6 +21,13 @@ interface FeatureCategory {
 
 const BASE_PRICE = 30;
 
+const SHOP_BUNDLE = [
+  "관리자 페이지 (결제 시스템 선택 시 필수)",
+  "주문 및 결제 시스템",
+  "장바구니",
+  "회원가입 / 로그인",
+];
+
 const featureMenu: FeatureCategory[] = [
   {
     category: "추가 구성",
@@ -29,14 +38,13 @@ const featureMenu: FeatureCategory[] = [
       </svg>
     ),
     features: [
-      { name: "추가 페이지", price: 3, quantifiable: true, unit: "페이지" },
-      { name: "반응형 디자인 (모바일 대응)", price: 10 },
-      { name: "도메인 & SSL 세팅", price: 5 },
-      { name: "기본 SEO 설정", price: 5 },
+      { name: "추가 페이지 (기본)", price: 3, quantifiable: true, unit: "페이지" },
+      { name: "추가 페이지 (고급 – 애니메이션/추가 디자인)", price: 5, quantifiable: true, unit: "페이지" },
+      { name: "반응형 홈페이지 (모바일 환경 맞춤)", price: 15 },
     ],
   },
   {
-    category: "기능 모듈",
+    category: "기능",
     iconColor: "bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -45,16 +53,14 @@ const featureMenu: FeatureCategory[] = [
       </svg>
     ),
     features: [
-      { name: "게시판", price: 5 },
+      { name: "게시판 기능", price: 5 },
       { name: "문의 폼 (이메일 발송)", price: 3 },
+      { name: "검색 시스템", price: 3 },
       { name: "예약 시스템", price: 15 },
-      { name: "검색 기능", price: 5 },
-      { name: "다국어 지원", price: 10, quantifiable: true, unit: "개 언어" },
-      { name: "채팅 위젯 (실시간)", price: 12 },
     ],
   },
   {
-    category: "회원 & 인증",
+    category: "회원가입 & 인증",
     iconColor: "bg-sky-50 text-sky-600 dark:bg-sky-900/20 dark:text-sky-400",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -62,12 +68,12 @@ const featureMenu: FeatureCategory[] = [
       </svg>
     ),
     features: [
-      { name: "회원가입 / 로그인", price: 8 },
-      { name: "소셜로그인 풀패키지 (구글+카카오+네이버+트위터)", price: 10 },
-      { name: "소셜로그인 (구글만)", price: 3 },
-      { name: "소셜로그인 (카카오만)", price: 3 },
-      { name: "마이페이지", price: 5 },
-      { name: "관리자 페이지", price: 10 },
+      { name: "회원가입 / 로그인", price: 10 },
+      { name: "소셜 로그인 풀패키지 (구글+카카오+네이버+X)", price: 15 },
+      { name: "소셜 로그인 단일 (구글/카카오/네이버/X)", price: 5 },
+      { name: "소셜 로그인 고급 (페이스북/인스타그램)", price: 10 },
+      { name: "회원 개인 페이지", price: 5 },
+      { name: "관리자 페이지 (회원·게시글 관리)", price: 5 },
     ],
   },
   {
@@ -79,41 +85,27 @@ const featureMenu: FeatureCategory[] = [
       </svg>
     ),
     features: [
-      { name: "상품 등록/관리", price: 10 },
-      { name: "결제 시스템 (PG 연동)", price: 10 },
-      { name: "장바구니", price: 5 },
-      { name: "주문/배송 관리", price: 8 },
-      { name: "쿠폰 / 할인 기능", price: 5 },
-      { name: "리뷰 시스템", price: 5 },
+      { name: "관리자 페이지 (결제 시스템 선택 시 필수)", price: 30 },
+      { name: "주문 및 결제 시스템", price: 20 },
+      { name: "장바구니", price: 3 },
+      { name: "리뷰 시스템", price: 3 },
+      { name: "쿠폰 / 할인 시스템", price: 3 },
+      { name: "배송 관리", price: 5 },
     ],
   },
   {
-    category: "AI & 챗봇",
-    iconColor: "bg-rose-50 text-rose-500 dark:bg-rose-900/20 dark:text-rose-400",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-      </svg>
-    ),
-    features: [
-      { name: "AI 챗봇 (기본)", price: 20 },
-      { name: "FAQ 자동 응답", price: 8 },
-      { name: "맞춤 학습 데이터 적용", price: 15 },
-      { name: "상담 내역 관리", price: 5 },
-    ],
-  },
-  {
-    category: "모바일 앱",
+    category: "기타",
     iconColor: "bg-slate-100 text-slate-600 dark:bg-slate-800/30 dark:text-slate-400",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
       </svg>
     ),
     features: [
-      { name: "크로스 플랫폼 앱 (Android+iOS)", price: 80 },
-      { name: "푸시 알림", price: 8 },
-      { name: "앱스토어 출시 대행", price: 10 },
+      { name: "도메인 구매 및 관리", price: 5 },
+      { name: "검색 노출 설정 (SEO)", price: 10 },
+      { name: "기타 기능 요청", price: 0, consultation: true },
+      { name: "직접 배포 및 호스팅", price: -10, discount: true },
     ],
   },
 ];
@@ -149,6 +141,20 @@ export default function PricingPage() {
     });
   };
 
+  const isShopBundleActive = SHOP_BUNDLE.every((name) => name in selectedFeatures);
+
+  const toggleShopBundle = () => {
+    setSelectedFeatures((prev) => {
+      const next = { ...prev };
+      if (isShopBundleActive) {
+        SHOP_BUNDLE.forEach((name) => delete next[name]);
+      } else {
+        SHOP_BUNDLE.forEach((name) => { next[name] = 1; });
+      }
+      return next;
+    });
+  };
+
   const setQuantity = (featureName: string, qty: number) => {
     if (qty < 1) return;
     setSelectedFeatures((prev) => ({ ...prev, [featureName]: qty }));
@@ -179,7 +185,7 @@ export default function PricingPage() {
       })
       .join(", ");
 
-    const featureSummary = `기본 홈페이지 패키지 (5페이지+호스팅)${addons ? `, ${addons}` : ""}`;
+    const featureSummary = `기본 홈페이지 패키지 (3페이지+호스팅)${addons ? `, ${addons}` : ""}`;
 
     const fullDescription = [
       description,
@@ -295,7 +301,7 @@ export default function PricingPage() {
                 </p>
                 <ul className="grid gap-2 sm:grid-cols-2">
                   {[
-                    "메인 페이지 포함 5페이지 이내",
+                    "메인 페이지 포함 3페이지 이내",
                     "웹 호스팅 제공",
                     "맞춤 디자인",
                     "소스 코드 제공",
@@ -325,6 +331,66 @@ export default function PricingPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">2</div>
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">추가 기능 선택 <span className="text-sm font-normal text-slate-400">(선택)</span></h2>
           </div>
+
+          {/* Shop bundle preset */}
+          <div className={`mb-6 rounded-2xl border-2 p-5 transition-all sm:p-6 ${
+            isShopBundleActive
+              ? "border-amber-400 bg-amber-50/60 dark:border-amber-500/70 dark:bg-amber-900/15"
+              : "border-amber-200/70 bg-amber-50/40 dark:border-amber-700/40 dark:bg-amber-900/10"
+          }`}>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72M6.75 18h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .414.336.75.75.75z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="text-base font-bold text-slate-900 dark:text-white">쇼핑몰 필수 세트</span>
+                    <span className="rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-bold text-white">추천</span>
+                  </div>
+                  <p className="mb-2 text-sm text-slate-500 dark:text-amber-200/60">
+                    온라인 쇼핑몰 구축 시 반드시 필요한 핵심 기능 4가지를 한 번에 선택합니다.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {SHOP_BUNDLE.map((name) => {
+                      const f = allFeatures.find((feat) => feat.name === name);
+                      return (
+                        <span key={name} className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
+                          name in selectedFeatures
+                            ? "bg-amber-200 text-amber-800 dark:bg-amber-700/50 dark:text-amber-200"
+                            : "bg-white text-slate-500 dark:bg-slate-800/50 dark:text-slate-400"
+                        }`}>
+                          {name} {f ? `(${f.price}만원)` : ""}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="flex shrink-0 flex-col items-end gap-2">
+                <p className="text-right text-xs text-slate-400 dark:text-amber-200/40">
+                  4개 기능 합산
+                </p>
+                <p className="text-2xl font-extrabold text-amber-600 dark:text-amber-400">
+                  {allFeatures.filter((f) => SHOP_BUNDLE.includes(f.name)).reduce((s, f) => s + f.price, 0)}
+                  <span className="text-sm font-bold text-slate-400 dark:text-amber-200/40">만원</span>
+                </p>
+                <button
+                  onClick={toggleShopBundle}
+                  className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all hover:scale-105 ${
+                    isShopBundleActive
+                      ? "bg-slate-200 text-slate-600 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                      : "bg-amber-500 text-white shadow-md shadow-amber-500/25 hover:bg-amber-600"
+                  }`}
+                >
+                  {isShopBundleActive ? "선택 해제" : "한 번에 선택하기"}
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div className="grid gap-6 lg:grid-cols-2">
             {featureMenu.map((cat) => (
               <div
@@ -371,8 +437,16 @@ export default function PricingPage() {
                               {f.quantifiable ? `${f.name} (1${f.unit}당)` : f.name}
                             </span>
                           </div>
-                          <span className={`text-sm font-bold whitespace-nowrap ${selected ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400 dark:text-emerald-200/40"}`}>
-                            {f.price}만원{f.quantifiable ? `/${f.unit}` : ""}
+                          <span className={`text-sm font-bold whitespace-nowrap ${
+                            f.discount
+                              ? selected ? "text-rose-500" : "text-rose-400/70"
+                              : selected ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400 dark:text-emerald-200/40"
+                          }`}>
+                            {f.consultation
+                              ? "직접 상담"
+                              : f.discount
+                                ? `-${Math.abs(f.price)}만원`
+                                : `${f.price}만원${f.quantifiable ? `/${f.unit}` : ""}`}
                           </span>
                         </button>
 
@@ -492,7 +566,7 @@ export default function PricingPage() {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">선택 요약</p>
               <div className="flex flex-wrap gap-1.5">
                 <span className="rounded-full bg-emerald-200 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-700/40 dark:text-emerald-200">
-                  기본 패키지 (5페이지+호스팅)
+                  기본 패키지 (3페이지+호스팅)
                 </span>
                 {Object.entries(selectedFeatures).map(([name, qty]) => {
                   const f = allFeatures.find((feat) => feat.name === name);
