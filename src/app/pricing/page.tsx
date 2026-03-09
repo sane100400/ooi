@@ -10,6 +10,7 @@ interface Feature {
   unit?: string;
   consultation?: boolean;
   discount?: boolean;
+  subFeatures?: Feature[];
 }
 
 interface FeatureCategory {
@@ -73,10 +74,16 @@ const featureMenu: FeatureCategory[] = [
     features: [
       { name: "회원가입 / 로그인", price: 10 },
       { name: "소셜 로그인 풀패키지 (구글+카카오+네이버+X)", price: 15 },
-      { name: "소셜 로그인 (구글)", price: 5 },
-      { name: "소셜 로그인 (카카오)", price: 5 },
-      { name: "소셜 로그인 (네이버)", price: 5 },
-      { name: "소셜 로그인 (X)", price: 5 },
+      {
+        name: "소셜 로그인 단일",
+        price: 5,
+        subFeatures: [
+          { name: "소셜 로그인 (구글)", price: 5 },
+          { name: "소셜 로그인 (카카오)", price: 5 },
+          { name: "소셜 로그인 (네이버)", price: 5 },
+          { name: "소셜 로그인 (X)", price: 5 },
+        ],
+      },
       { name: "소셜 로그인 고급 (페이스북/인스타그램)", price: 10 },
       { name: "회원 개인 페이지", price: 5 },
       { name: "관리자 페이지 (회원·게시글 관리)", price: 5 },
@@ -133,7 +140,16 @@ export default function PricingPage() {
   const [maintenancePlan, setMaintenancePlan] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
   const formRef = useRef<HTMLDivElement>(null);
+
+  const toggleGroup = (name: string) => {
+    setExpandedGroups((prev) => {
+      const next = new Set(prev);
+      next.has(name) ? next.delete(name) : next.add(name);
+      return next;
+    });
+  };
 
   const toggleFeature = (featureName: string, quantifiable?: boolean) => {
     // Prevent manually deselecting admin if any dependent features are still selected
@@ -180,7 +196,9 @@ export default function PricingPage() {
     setSelectedFeatures((prev) => ({ ...prev, [featureName]: qty }));
   };
 
-  const allFeatures = featureMenu.flatMap((c) => c.features);
+  const allFeatures = featureMenu.flatMap((c) =>
+    c.features.flatMap((f) => (f.subFeatures ? f.subFeatures : [f]))
+  );
 
   const totalPrice = BASE_PRICE + Object.entries(selectedFeatures).reduce((sum, [name, qty]) => {
     const f = allFeatures.find((feat) => feat.name === name);
@@ -415,6 +433,97 @@ export default function PricingPage() {
 
                 <div className="space-y-2">
                   {cat.features.map((f) => {
+                    // --- Dropdown group (e.g. 소셜 로그인 단일) ---
+                    if (f.subFeatures) {
+                      const isOpen = expandedGroups.has(f.name);
+                      const selectedSubs = f.subFeatures.filter((s) => s.name in selectedFeatures);
+                      const hasSelected = selectedSubs.length > 0;
+                      return (
+                        <div key={f.name}>
+                          <button
+                            onClick={() => toggleGroup(f.name)}
+                            className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-all ${
+                              hasSelected
+                                ? "bg-emerald-50 border border-emerald-200 dark:bg-emerald-800/20 dark:border-emerald-700/50"
+                                : "bg-slate-50 border border-transparent hover:bg-slate-100 dark:bg-emerald-900/5 dark:hover:bg-emerald-900/15"
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
+                                hasSelected ? "border-emerald-500 bg-emerald-500" : "border-slate-300 dark:border-emerald-700"
+                              }`}>
+                                {selectedSubs.length === f.subFeatures.length && (
+                                  <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                  </svg>
+                                )}
+                                {hasSelected && selectedSubs.length < f.subFeatures.length && (
+                                  <div className="h-2 w-2 rounded-sm bg-emerald-500" />
+                                )}
+                              </div>
+                              <span className={`text-sm font-medium ${hasSelected ? "text-slate-800 dark:text-emerald-200" : "text-slate-600 dark:text-emerald-200/60"}`}>
+                                {f.name}
+                                {hasSelected && (
+                                  <span className="ml-1.5 text-xs font-normal text-emerald-600 dark:text-emerald-400">
+                                    ({selectedSubs.length}개 선택)
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className={`text-sm font-bold whitespace-nowrap ${hasSelected ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400 dark:text-emerald-200/40"}`}>
+                                {f.price}만원/개
+                              </span>
+                              <svg
+                                className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+
+                          {isOpen && (
+                            <div className="ml-4 mt-1.5 space-y-1.5 border-l-2 border-emerald-100 pl-4 dark:border-emerald-800/40">
+                              {f.subFeatures.map((sub) => {
+                                const subSelected = sub.name in selectedFeatures;
+                                return (
+                                  <button
+                                    key={sub.name}
+                                    onClick={() => toggleFeature(sub.name)}
+                                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left transition-all ${
+                                      subSelected
+                                        ? "bg-emerald-50 border border-emerald-200 dark:bg-emerald-800/20 dark:border-emerald-700/50"
+                                        : "bg-slate-50 border border-transparent hover:bg-slate-100 dark:bg-emerald-900/5 dark:hover:bg-emerald-900/15"
+                                    }`}
+                                  >
+                                    <div className="flex items-center gap-2.5">
+                                      <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 transition-colors ${
+                                        subSelected ? "border-emerald-500 bg-emerald-500" : "border-slate-300 dark:border-emerald-700"
+                                      }`}>
+                                        {subSelected && (
+                                          <svg className="h-2.5 w-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                          </svg>
+                                        )}
+                                      </div>
+                                      <span className={`text-sm ${subSelected ? "font-medium text-slate-800 dark:text-emerald-200" : "text-slate-500 dark:text-emerald-200/60"}`}>
+                                        {sub.name.replace("소셜 로그인 ", "")}
+                                      </span>
+                                    </div>
+                                    <span className={`text-xs font-bold ${subSelected ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400 dark:text-emerald-200/40"}`}>
+                                      {sub.price}만원
+                                    </span>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
+                    // --- Normal feature ---
                     const selected = f.name in selectedFeatures;
                     const qty = selectedFeatures[f.name] || 1;
                     const isAutoSelected = f.name === SHOP_ADMIN && SHOP_ADMIN_DEPS.some((d) => d in selectedFeatures);
@@ -429,13 +538,9 @@ export default function PricingPage() {
                           } ${isAutoSelected ? "cursor-default" : ""}`}
                         >
                           <div className="flex items-center gap-3">
-                            <div
-                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
-                                selected
-                                  ? "border-emerald-500 bg-emerald-500"
-                                  : "border-slate-300 dark:border-emerald-700"
-                              }`}
-                            >
+                            <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
+                              selected ? "border-emerald-500 bg-emerald-500" : "border-slate-300 dark:border-emerald-700"
+                            }`}>
                               {selected && (
                                 <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -464,7 +569,6 @@ export default function PricingPage() {
                           </span>
                         </button>
 
-                        {/* Quantity control */}
                         {selected && f.quantifiable && (
                           <div className="flex items-center gap-1 rounded-xl border border-emerald-200 bg-emerald-50 px-1 py-1 dark:border-emerald-700/50 dark:bg-emerald-900/20">
                             <button
