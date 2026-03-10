@@ -342,7 +342,6 @@ export default function PricingPage() {
                     "메인 페이지 포함 3페이지 이내",
                     "웹 호스팅 제공",
                     "맞춤 디자인",
-                    "소스 코드 제공",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-emerald-200/70">
                       <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
